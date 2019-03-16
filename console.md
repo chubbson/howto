@@ -51,4 +51,7 @@ move / rename
 
 mv /home/user/oldname /home/user/newname
 
+htop
+----
 
+htop is console based perf manager
