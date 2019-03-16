@@ -1,4 +1,4 @@
-#Nice to know consle commands 
+# Nice to know consle commands 
 
 anyCommand >> /dev/null 2>&1
 ----------------------------
