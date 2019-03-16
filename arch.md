@@ -12,8 +12,8 @@ alternattive check for upgrade, upgrade
 Fix VM Broke Archlinux grub
 ---------------------------
 
-`mount /dev/sda3 /mnt`
-`mount /dev/sda1 /mnt/boot`
+`mount /dev/sda3 /mnt` 
+`mount /dev/sda1 /mnt/boot` 
 `grub-install --target=x86_64-efi --efi-directory=/mnt/boot 
 --root-directory=/mnt --recheck`
 
