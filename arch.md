@@ -5,9 +5,8 @@ Upgrade system
 
 `pacman -Syu`
 
-alternattive check for upgrade, upgrade  
-`pacman -Sy`, `pacman -Syy` force upgrade even if up to date  
-`pacman -Su` upgrade
+never run `pacman -Sy` alway usse pacman -Syu`  
+`pacman -Syyu` force upgrade even if up to date  
 
 Fix VM Broke Archlinux grub
 ---------------------------
