@@ -26,5 +26,26 @@ So `2>&1` simply says redirect 2:`STDERR` to 1:`STDOUT`
 
 [Stackoverflow](stackoverflow.com/questions/10508843/what-is-dev-null21)
 
+define functions
+----------------
+
+```bash
+is_executable() {
+  type "$1" > /dev/null 2>&1
+}
+```
+
+if then else
+------------
+
+```bash
+if is_executable "git"; then
+  echo git is available
+else
+  echo No git, available on system 
+fi
+```
+
+
 
 
