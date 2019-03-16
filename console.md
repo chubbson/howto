@@ -1,7 +1,7 @@
 #Nice to know consle commands 
 
->> /dev/null 2>&1
------------------
+anyCommand >> /dev/null 2>&1
+----------------------------
 
 By using this command you are telling your program not to shout while 
 executing.
@@ -24,7 +24,7 @@ respectivly.
 So `2>&1` simply says redirect 2:`STDERR` to 1:`STDOUT`  
 0 stads for `STDIN`  
 
-[Stackoverflow](stackoverflow.com/questions/10508843/what-is-dev-null21)
+[Stackoverflow](https://www.stackoverflow.com/questions/10508843/what-is-dev-null-21)
 
 define functions
 ----------------
