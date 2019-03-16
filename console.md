@@ -46,6 +46,9 @@ else
 fi
 ```
 
+move / rename
+-------------
 
+mv /home/user/oldname /home/user/newname
 
 
