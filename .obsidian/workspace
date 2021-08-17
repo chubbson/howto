@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "arch.md",
+            "file": "Cheatsheet.md",
             "mode": "source"
           }
         }
@@ -68,7 +68,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "arch.md",
+                "file": "Cheatsheet.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -87,13 +87,13 @@
   },
   "active": "3eefbe2a726db9b5",
   "lastOpenFiles": [
+    "Cheatsheet.md",
+    "markdown.md",
+    "console.md",
+    "yay.md",
     "arch.md",
     "aur.md",
-    "Cheatsheet.md",
-    "console.md",
     "git.md",
-    "markdown.md",
-    "yay.md",
     "YAY.md"
   ]
 }
