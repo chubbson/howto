@@ -1,3 +1,5 @@
+[Markdown [[Cheatsheet]](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
+
 use ` to indicate code seciton `code section inline`.  
 
 use ``` for code block 

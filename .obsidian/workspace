@@ -1,0 +1,99 @@
+{
+  "main": {
+    "id": "110e2c9ea86ed3b5",
+    "type": "split",
+    "children": [
+      {
+        "id": "3eefbe2a726db9b5",
+        "type": "leaf",
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "arch.md",
+            "mode": "source"
+          }
+        }
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "bb31bae1244d6247",
+    "type": "split",
+    "children": [
+      {
+        "id": "452bfe7c3a803a29",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "8bdd2a2530740a3f",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
+          },
+          {
+            "id": "c86d1b9648da1238",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "7d6ac93e834d7f27",
+    "type": "split",
+    "children": [
+      {
+        "id": "e37679bd77d0df55",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "77583dce3c67a90b",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "arch.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "active": "3eefbe2a726db9b5",
+  "lastOpenFiles": [
+    "arch.md",
+    "aur.md",
+    "Cheatsheet.md",
+    "console.md",
+    "git.md",
+    "markdown.md",
+    "yay.md",
+    "YAY.md"
+  ]
+}
