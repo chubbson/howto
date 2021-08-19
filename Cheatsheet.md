@@ -8,5 +8,6 @@
 
 [[bash]] [Cheatsheet](https://devhints.io/bash)
 
-[[GDB]] [Howto] (http://www.gdbtutorial.com/tutorial/how-use-gdb-example)
+[[GDB]] [Howto](http://www.gdbtutorial.com/tutorial/how-use-gdb-example)
 
+[[less]]

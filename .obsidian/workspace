@@ -9,8 +9,8 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "Cheatsheet.md",
-            "mode": "source"
+            "file": "yay.md",
+            "mode": "preview"
           }
         }
       }
@@ -68,7 +68,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Cheatsheet.md",
+                "file": "yay.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -87,13 +87,15 @@
   },
   "active": "3eefbe2a726db9b5",
   "lastOpenFiles": [
-    "Cheatsheet.md",
-    "git.md",
-    "console.md",
-    "markdown.md",
     "yay.md",
     "arch.md",
     "aur.md",
+    "Cheatsheet.md",
+    "git.md",
+    "less.md",
+    "console.md",
+    "less Cheatsheet.md",
+    "markdown.md",
     "YAY.md"
   ]
 }
