@@ -9,8 +9,8 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "yay.md",
-            "mode": "preview"
+            "file": "README.md",
+            "mode": "source"
           }
         }
       }
@@ -68,7 +68,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "yay.md",
+                "file": "README.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -87,15 +87,15 @@
   },
   "active": "3eefbe2a726db9b5",
   "lastOpenFiles": [
+    "README.md",
+    "markdown.md",
+    "Untitled.md",
     "yay.md",
     "arch.md",
     "aur.md",
     "Cheatsheet.md",
     "git.md",
     "less.md",
-    "console.md",
-    "less Cheatsheet.md",
-    "markdown.md",
-    "YAY.md"
+    "console.md"
   ]
 }
