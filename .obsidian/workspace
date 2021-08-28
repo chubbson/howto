@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "README.md",
+            "file": "arch.md",
             "mode": "source"
           }
         }
@@ -68,7 +68,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "README.md",
+                "file": "arch.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -87,11 +87,11 @@
   },
   "active": "3eefbe2a726db9b5",
   "lastOpenFiles": [
+    "arch.md",
+    "yay.md",
     "README.md",
     "markdown.md",
     "Untitled.md",
-    "yay.md",
-    "arch.md",
     "aur.md",
     "Cheatsheet.md",
     "git.md",

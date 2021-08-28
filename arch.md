@@ -18,3 +18,5 @@ Fix VM Broke Archlinux grub
 
 originaly I just made  
 `grub-install --target=x86_64-efi --efi-directory=/boot`
+
+[[Install]] 
