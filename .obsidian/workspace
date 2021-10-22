@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "Install.md",
+            "file": "arch.md",
             "mode": "source"
           }
         }
@@ -68,7 +68,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Install.md",
+                "file": "arch.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -87,10 +87,10 @@
   },
   "active": "3eefbe2a726db9b5",
   "lastOpenFiles": [
+    "arch.md",
     "Install.md",
     "ProtonVPN.md",
     "less.md",
-    "arch.md",
     "yay.md",
     "README.md",
     "markdown.md",
