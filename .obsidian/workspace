@@ -88,14 +88,14 @@
   "active": "3eefbe2a726db9b5",
   "lastOpenFiles": [
     "arch.md",
-    "Install.md",
-    "ProtonVPN.md",
-    "less.md",
-    "yay.md",
-    "README.md",
-    "markdown.md",
-    "Untitled.md",
     "aur.md",
-    "Cheatsheet.md"
+    "Cheatsheet.md",
+    "console.md",
+    "ProtonVPN.md",
+    "yay.md",
+    "git.md",
+    "Install.md",
+    "less.md",
+    "README.md"
   ]
 }
