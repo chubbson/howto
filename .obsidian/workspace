@@ -9,8 +9,9 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "arch.md",
-            "mode": "source"
+            "file": "rust.md",
+            "mode": "source",
+            "source": false
           }
         }
       }
@@ -68,7 +69,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "arch.md",
+                "file": "rust.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -87,15 +88,15 @@
   },
   "active": "3eefbe2a726db9b5",
   "lastOpenFiles": [
-    "arch.md",
-    "aur.md",
-    "Cheatsheet.md",
-    "console.md",
-    "ProtonVPN.md",
-    "yay.md",
     "git.md",
     "Install.md",
     "less.md",
-    "README.md"
+    "rust.md",
+    "arch.md",
+    "README.md",
+    "ProtonVPN.md",
+    "console.md",
+    "Cheatsheet.md",
+    "aur.md"
   ]
 }
