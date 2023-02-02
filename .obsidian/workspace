@@ -4,16 +4,35 @@
     "type": "split",
     "children": [
       {
-        "id": "3eefbe2a726db9b5",
-        "type": "leaf",
-        "state": {
-          "type": "markdown",
-          "state": {
-            "file": "Install.md",
-            "mode": "source",
-            "source": false
+        "id": "a2a9597d4be6c20c",
+        "type": "split",
+        "children": [
+          {
+            "id": "3eefbe2a726db9b5",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "arch.md",
+                "mode": "source",
+                "source": true
+              }
+            }
+          },
+          {
+            "id": "088698b8a2883b8e",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "arch.md",
+                "mode": "source",
+                "source": false
+              }
+            }
           }
-        }
+        ],
+        "direction": "horizontal"
       }
     ],
     "direction": "vertical"
@@ -69,7 +88,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Install.md",
+                "file": "arch.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -88,10 +107,10 @@
   },
   "active": "3eefbe2a726db9b5",
   "lastOpenFiles": [
+    "Install.md",
     "arch.md",
     "rust.md",
     "git.md",
-    "Install.md",
     "less.md",
     "README.md",
     "ProtonVPN.md",

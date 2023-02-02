@@ -8,6 +8,14 @@ Upgrade system
 never run `pacman -Sy` alway usse  `pacman -Syu`  
 `pacman -Syyu` force upgrade even if up to date  
 
+Import PGP key 
+-----------
+
+`:: Import PGP key 7AABBEEFF11225C, "Simon Salz <salz@archlinux.org>"? [Y/n]`
+
+Never import keyring. 
+
+
 Fix VM Broke Archlinux grub
 ---------------------------
 
