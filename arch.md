@@ -14,7 +14,12 @@ Import PGP key
 `:: Import PGP key 7AABBEEFF11225C, "Simon Salz <salz@archlinux.org>"? [Y/n]`
 
 Never import keyring. 
-
+1. Clean cached packages 
+   https://wiki.archlinux.org/title/Pacman/Package_signing
+   `pacman -Sc`
+2. Refresh keyring
+   `pacman-key --refresh-keys`
+3. 
 
 Fix VM Broke Archlinux grub
 ---------------------------
