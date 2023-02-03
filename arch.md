@@ -14,8 +14,10 @@ Import PGP key
 `:: Import PGP key 7AABBEEFF11225C, "Simon Salz <salz@archlinux.org>"? [Y/n]`
 Never import keyring. 
 
-
+if delay is unavoidable and system upgrade gets delayed for an extended period, manually sync the package database and upgrade the [archlinux-keyring](https://archlinux.org/packages/?name=archlinux-keyring) package before system upgrade:
 https://wiki.archlinux.org/title/Pacman/Package_signing
+
+
 
 Folgendes schient nicht zu funktionieren: 
 ---

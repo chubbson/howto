@@ -72,7 +72,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 180.5036334991455
   },
   "right": {
     "id": "7d6ac93e834d7f27",
@@ -105,7 +105,7 @@
     "direction": "horizontal",
     "width": 300
   },
-  "active": "3eefbe2a726db9b5",
+  "active": "8bdd2a2530740a3f",
   "lastOpenFiles": [
     "Install.md",
     "arch.md",
