@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "arch.md",
+                "file": "git.md",
                 "mode": "source",
                 "source": true
               }
@@ -25,7 +25,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "arch.md",
+                "file": "git.md",
                 "mode": "source",
                 "source": false
               }
@@ -88,7 +88,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "arch.md",
+                "file": "git.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -105,12 +105,12 @@
     "direction": "horizontal",
     "width": 242.97837829589844
   },
-  "active": "8bdd2a2530740a3f",
+  "active": "088698b8a2883b8e",
   "lastOpenFiles": [
-    "Install.md",
     "arch.md",
-    "rust.md",
     "git.md",
+    "Install.md",
+    "rust.md",
     "less.md",
     "README.md",
     "ProtonVPN.md",
