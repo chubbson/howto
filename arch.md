@@ -14,6 +14,11 @@ Import PGP key
 `:: Import PGP key 7AABBEEFF11225C, "Simon Salz <salz@archlinux.org>"? [Y/n]`
 Never import keyring. 
 
+
+https://wiki.archlinux.org/title/Pacman/Package_signing
+
+Folgendes schient nicht zu funktionieren: 
+---
 1. Clean cached packages 
    https://wiki.archlinux.org/title/Pacman/Package_signing
    `pacman -Sc`
