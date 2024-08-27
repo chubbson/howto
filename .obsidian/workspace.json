@@ -35,7 +35,7 @@
                 "state": {
                   "type": "markdown",
                   "state": {
-                    "file": "arch.md",
+                    "file": "Cheatsheet.md",
                     "mode": "source",
                     "source": false
                   }
@@ -102,7 +102,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "arch.md",
+                "file": "Cheatsheet.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -130,15 +130,15 @@
   },
   "active": "088698b8a2883b8e",
   "lastOpenFiles": [
-    "git.md",
+    "aur.md",
+    "Cheatsheet.md",
     "arch.md",
+    "git.md",
     "Install.md",
     "rust.md",
     "less.md",
     "README.md",
     "ProtonVPN.md",
-    "console.md",
-    "Cheatsheet.md",
-    "aur.md"
+    "console.md"
   ]
 }
