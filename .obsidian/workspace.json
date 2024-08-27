@@ -1,0 +1,144 @@
+{
+  "main": {
+    "id": "110e2c9ea86ed3b5",
+    "type": "split",
+    "children": [
+      {
+        "id": "a2a9597d4be6c20c",
+        "type": "split",
+        "children": [
+          {
+            "id": "4949d9168f7b5d0c",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "3eefbe2a726db9b5",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "git.md",
+                    "mode": "source",
+                    "source": true
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "id": "56b54e0e6f9dd81e",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "088698b8a2883b8e",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "arch.md",
+                    "mode": "source",
+                    "source": false
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        "direction": "horizontal"
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "bb31bae1244d6247",
+    "type": "split",
+    "children": [
+      {
+        "id": "452bfe7c3a803a29",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "8bdd2a2530740a3f",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "c86d1b9648da1238",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 180.5036334991455
+  },
+  "right": {
+    "id": "7d6ac93e834d7f27",
+    "type": "split",
+    "children": [
+      {
+        "id": "e37679bd77d0df55",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "77583dce3c67a90b",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "arch.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 242.97837829589844
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "command-palette:Open command palette": false,
+      "markdown-importer:Open format converter": false
+    }
+  },
+  "active": "088698b8a2883b8e",
+  "lastOpenFiles": [
+    "git.md",
+    "arch.md",
+    "Install.md",
+    "rust.md",
+    "less.md",
+    "README.md",
+    "ProtonVPN.md",
+    "console.md",
+    "Cheatsheet.md",
+    "aur.md"
+  ]
+}
