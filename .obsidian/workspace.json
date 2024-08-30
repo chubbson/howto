@@ -4,58 +4,22 @@
     "type": "split",
     "children": [
       {
-        "id": "a2a9597d4be6c20c",
-        "type": "split",
+        "id": "4949d9168f7b5d0c",
+        "type": "tabs",
         "children": [
           {
-            "id": "4949d9168f7b5d0c",
-            "type": "tabs",
-            "children": [
-              {
-                "id": "3eefbe2a726db9b5",
-                "type": "leaf",
-                "state": {
-                  "type": "markdown",
-                  "state": {
-                    "file": "git.md",
-                    "mode": "source",
-                    "source": true
-                  }
-                }
+            "id": "3eefbe2a726db9b5",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "yay.md",
+                "mode": "source",
+                "source": true
               }
-            ]
-          },
-          {
-            "id": "56b54e0e6f9dd81e",
-            "type": "tabs",
-            "children": [
-              {
-                "id": "088698b8a2883b8e",
-                "type": "leaf",
-                "state": {
-                  "type": "markdown",
-                  "state": {
-                    "file": "Cheatsheet.md",
-                    "mode": "source",
-                    "source": false
-                  }
-                }
-              },
-              {
-                "id": "b1bce42d2cf5c0d1",
-                "type": "leaf",
-                "state": {
-                  "type": "release-notes",
-                  "state": {
-                    "currentVersion": "1.6.7"
-                  }
-                }
-              }
-            ],
-            "currentTab": 1
+            }
           }
-        ],
-        "direction": "horizontal"
+        ]
       }
     ],
     "direction": "vertical"
@@ -121,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Cheatsheet.md",
+                "file": "yay.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -147,12 +111,12 @@
       "markdown-importer:Open format converter": false
     }
   },
-  "active": "b1bce42d2cf5c0d1",
+  "active": "3eefbe2a726db9b5",
   "lastOpenFiles": [
+    "git.md",
     "aur.md",
     "Cheatsheet.md",
     "arch.md",
-    "git.md",
     "Install.md",
     "rust.md",
     "less.md",
