@@ -11,4 +11,16 @@ check encryption , sec breaches, fingerprints and so on.
 
 `TCPKeepAive` 
 `ServerAliveInterval`
-`ObscureKeystrokeTiming` interval:80, you can attack via statistical analisis. with this 
+`ObscureKeystrokeTiming` interval:80, you can attack via statistical analisis. with this setting we obfuscate sending packages to avoid thes attack vector. 
+
+Adding aliases
+```
+Host sharebox
+  HostName               gitlab...com
+```
+
+vim ~/.ssh/config
+
+Windosws
+
+`mobaxterm` win ssh client better than putty
