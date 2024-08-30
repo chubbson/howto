@@ -44,5 +44,10 @@ MOSH, not recommendet, because of systemd
 - traveling much, and have shitty internet, check it out. 
 
 
+2fa, resident key. 
+
+yubiky 
+github.com drduh/yubikey-guide
+
 
 
