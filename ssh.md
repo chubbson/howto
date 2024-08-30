@@ -23,4 +23,14 @@ vim ~/.ssh/config
 
 Windosws
 
-`mobaxterm` win ssh client better than putty
+`mobaXterm` win ssh client better than putty
+included xserver
+czgwin, with portableserver
+builtin clickybased filebrowsing client
+
+ipsec is waste of time, use wireguard. 
+
+
+another program. 
+`ssh tummel` 
+
