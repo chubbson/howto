@@ -34,3 +34,15 @@ ipsec is waste of time, use wireguard.
 another program. 
 `ssh tummel` 
 
+
+terminal sharing
+
+share terminal sessaion, `upterm`, `tmate`
+
+
+MOSH, not recommendet, because of systemd
+- traveling much, and have shitty internet, check it out. 
+
+
+
+
