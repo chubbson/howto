@@ -40,8 +40,19 @@
                     "source": false
                   }
                 }
+              },
+              {
+                "id": "b1bce42d2cf5c0d1",
+                "type": "leaf",
+                "state": {
+                  "type": "release-notes",
+                  "state": {
+                    "currentVersion": "1.6.7"
+                  }
+                }
               }
-            ]
+            ],
+            "currentTab": 1
           }
         ],
         "direction": "horizontal"
@@ -80,6 +91,14 @@
                 "extraContext": false,
                 "sortOrder": "alphabetical"
               }
+            }
+          },
+          {
+            "id": "65574e85449b3c93",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
             }
           }
         ]
@@ -128,7 +147,7 @@
       "markdown-importer:Open format converter": false
     }
   },
-  "active": "088698b8a2883b8e",
+  "active": "b1bce42d2cf5c0d1",
   "lastOpenFiles": [
     "aur.md",
     "Cheatsheet.md",
