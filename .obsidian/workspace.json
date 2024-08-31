@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "solo2.md",
+                "file": "emacs.md",
                 "mode": "source",
                 "source": true
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "solo2.md",
+                "file": "emacs.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -113,11 +113,12 @@
   },
   "active": "c7484793981e08a8",
   "lastOpenFiles": [
-    "Udev.md",
+    "Cheatsheet.md",
+    "emacs.md",
     "solo2.md",
+    "Udev.md",
     "Install.md",
     "Untitled.canvas",
-    "Cheatsheet.md",
     "ssh.md",
     "yay.md",
     "git.md",
