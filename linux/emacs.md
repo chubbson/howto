@@ -28,4 +28,10 @@ https://sessions.hack-mas.at/event/QMWSzNZYF4EnHj6CP/sich-und-seine-daten-mit-or
 ###### webbookmars
 ###### literale programming (babel)
 
+Fragen: 
+Sync mit android.
+Orgsli, nicht mehr verwendetn. Folgendes sollte geforkt und weiter maintained werden. 
+OrgZeroDrive. Native App fuer Emacs. 
+
+BlendUML, als tool m 
 
