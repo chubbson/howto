@@ -16,4 +16,4 @@ Links: [[HardareKey]]
 ### oh-my-zsh
 
 use `/.oh-my-zsh/custom/plugins/my_completion/` my script. 
-get script with 
+get script with `solo2 completion zsh >> ~/.oh-my-zsh/custom/plugins/my_completion/solo2_completion`
