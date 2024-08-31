@@ -11,11 +11,21 @@ https://sessions.hack-mas.at/event/QMWSzNZYF4EnHj6CP/sich-und-seine-daten-mit-or
 
 ##### Todo liste 
 
--- knowledgemanagment
+`TODO` Zelt einpacken
+- [] voerher bitte trocknen lassen
+- [] heringe nicht im gras liegen lassen. 
+- 
+`TODO` Leute verabschieden
+
+###### knowledgemanagment
+
 - Bidirektionale links:
 - categorien vs tas
 - referenzmanagement
 - zettelkasten
 - webbookmargs
+
+###### webbookmars
+###### literale programming (babel)
 
 
