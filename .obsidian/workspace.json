@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "ssh.md",
+                "file": "Cheatsheet.md",
                 "mode": "source",
                 "source": true
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "ssh.md",
+                "file": "Cheatsheet.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -113,8 +113,8 @@
   },
   "active": "3eefbe2a726db9b5",
   "lastOpenFiles": [
-    "Cheatsheet.md",
     "ssh.md",
+    "Cheatsheet.md",
     "yay.md",
     "Install.md",
     "git.md",
