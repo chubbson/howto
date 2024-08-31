@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "emacs.md",
+                "file": "events/hmc.md",
                 "mode": "source",
                 "source": true
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "emacs.md",
+                "file": "events/hmc.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -111,10 +111,14 @@
       "markdown-importer:Open format converter": false
     }
   },
-  "active": "c7484793981e08a8",
+  "active": "8bdd2a2530740a3f",
   "lastOpenFiles": [
-    "Cheatsheet.md",
+    "Untitled",
+    "linux",
     "emacs.md",
+    "events/hmc.md",
+    "events",
+    "Cheatsheet.md",
     "solo2.md",
     "Udev.md",
     "Install.md",
