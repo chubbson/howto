@@ -6,7 +6,7 @@ Links: [[HardareKey]]
 
 * Define [[Udev]] rules: https://github.com/solokeys/solo2-cli/blob/main/70-solo2.rules 
 * Define these rule on administrator level `/etc/udev`
-* with `cp https://github.com/solokeys/solo2-cli/blob/main/70-solo2.rules /etc/udev/`
-* `sudo curl -L -o /etc/udev/rules.d/70-solo2.rules https://raw.githubusercontent.com/solokeys/solo2-cli/main/70-solo2.rules`
+* with:
+  `sudo curl -L -o /etc/udev/rules.d/70-solo2.rules https://raw.githubusercontent.com/solokeys/solo2-cli/main/70-solo2.rules`
 * 
 
