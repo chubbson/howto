@@ -33,5 +33,5 @@ Sync mit android.
 Orgsli, nicht mehr verwendetn. Folgendes sollte geforkt und weiter maintained werden. 
 OrgZeroDrive. Native App fuer Emacs. 
 
-BlendUML, als tool m 
+BlendUML, als tool mit text um diagramme zu rendern in emacs output. 
 
