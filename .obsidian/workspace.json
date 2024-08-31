@@ -30,9 +30,21 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "20a28dc6c5d90300",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Newsboat.md",
+                "mode": "source",
+                "source": false
+              }
+            }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -98,7 +110,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "rss reader.md",
+                "file": "Newsboat.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -124,10 +136,11 @@
       "markdown-importer:Open format converter": false
     }
   },
-  "active": "4101e861bbb223f8",
+  "active": "20a28dc6c5d90300",
   "lastOpenFiles": [
-    "linux/emacs.md",
     "rss reader.md",
+    "Newsboat.md",
+    "linux/emacs.md",
     "events/hmc.md",
     "Karl Voit.md",
     "markdown.md",
