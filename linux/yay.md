@@ -1,7 +1,7 @@
 [yay samples](https://computingforgeeks.com/yay-best-aur-helper-for-arch-linux-manjaro/)
 [yay install](https://itsfoss.com/install-yay-arch-linux/#removing-yay-from-your-arch-system)
 
-yay [[AUR]] Helper for Arch Linux
+yay [[aur]] Helper for Arch Linux
 
 **NEVER** RUN YAY WITH **SUDO**
 
@@ -17,7 +17,7 @@ update just update [[aur]] packages
 remove package using yay
 `yay -Rns packager`
 
-update your [[Arch]] system with inlc packages
+update your [[arch]] system with inlc packages
 `yay -Syu`
 
 Clean unneeded dependencies

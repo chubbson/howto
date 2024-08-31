@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "events/hmc.md",
+                "file": "markdown.md",
                 "mode": "source",
                 "source": true
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "events/hmc.md",
+                "file": "markdown.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -111,27 +111,28 @@
       "markdown-importer:Open format converter": false
     }
   },
-  "active": "8bdd2a2530740a3f",
+  "active": "c7484793981e08a8",
   "lastOpenFiles": [
-    "Untitled",
-    "linux",
-    "emacs.md",
-    "events/hmc.md",
-    "events",
     "Cheatsheet.md",
-    "solo2.md",
-    "Udev.md",
-    "Install.md",
-    "Untitled.canvas",
-    "ssh.md",
-    "yay.md",
-    "git.md",
-    "aur.md",
-    "arch.md",
-    "rust.md",
-    "less.md",
+    "markdown.md",
+    "linux/solo2.md",
     "README.md",
-    "ProtonVPN.md",
-    "console.md"
+    "linux/ProtonVPN.md",
+    "linux/Install.md",
+    "linux/emacs.md",
+    "linux/console.md",
+    "events/hmc.md",
+    "devel",
+    "linux",
+    "events",
+    "linux/Udev.md",
+    "Untitled.canvas",
+    "linux/ssh.md",
+    "linux/yay.md",
+    "devel/git.md",
+    "linux/aur.md",
+    "linux/arch.md",
+    "devel/rust.md",
+    "linux/less.md"
   ]
 }
