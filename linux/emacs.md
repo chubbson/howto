@@ -1,5 +1,5 @@
 https://wiki.archlinux.org/title/Emacs
-https://orgmode.org/
+https://orgmode.org/ written in lisp
 https://sessions.hack-mas.at/event/QMWSzNZYF4EnHj6CP/sich-und-seine-daten-mit-org-mode-organisieren
 
 #### emacs org mode
@@ -8,3 +8,14 @@ https://sessions.hack-mas.at/event/QMWSzNZYF4EnHj6CP/sich-und-seine-daten-mit-or
 `+durchgestrichen+`
 
 `:PROPERTIES:` key value pairs, zum aufzuklappen. 
+
+##### Todo liste 
+
+-- knowledgemanagment
+- Bidirektionale links:
+- categorien vs tas
+- referenzmanagement
+- zettelkasten
+- webbookmargs
+
+

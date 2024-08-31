@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "markdown.md",
+                "file": "linux/emacs.md",
                 "mode": "source",
                 "source": true
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "markdown.md",
+                "file": "linux/emacs.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -113,15 +113,16 @@
   },
   "active": "c7484793981e08a8",
   "lastOpenFiles": [
-    "Cheatsheet.md",
+    "events/hmc.md",
+    "Karl Voit.md",
+    "linux/emacs.md",
     "markdown.md",
+    "Cheatsheet.md",
     "linux/solo2.md",
     "README.md",
     "linux/ProtonVPN.md",
     "linux/Install.md",
-    "linux/emacs.md",
     "linux/console.md",
-    "events/hmc.md",
     "devel",
     "linux",
     "events",
