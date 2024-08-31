@@ -4,15 +4,19 @@
     "type": "split",
     "children": [
       {
-        "id": "4949d9168f7b5d0c",
+        "id": "3cef0b86991a14ae",
         "type": "tabs",
         "children": [
           {
-            "id": "3eefbe2a726db9b5",
+            "id": "c7484793981e08a8",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "Udev.md",
+                "mode": "source",
+                "source": true
+              }
             }
           }
         ]
@@ -81,6 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "Udev.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -106,10 +111,11 @@
       "markdown-importer:Open format converter": false
     }
   },
-  "active": "3eefbe2a726db9b5",
+  "active": "c7484793981e08a8",
   "lastOpenFiles": [
-    "Untitled.canvas",
     "solo2.md",
+    "Udev.md",
+    "Untitled.canvas",
     "Cheatsheet.md",
     "ssh.md",
     "yay.md",
