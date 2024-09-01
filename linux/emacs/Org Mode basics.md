@@ -1,2 +1,6 @@
 Headings: `*`, `**`, `***` - different levels
-Lists: `-`. ''
+Lists bullets: `-`. `+`
+Lists checkbox: `[ ]`, `[X]` for tasks
+Checkboxes: `[ ]`. 
+- `[X]` for done
+- `[-]` for in progress
