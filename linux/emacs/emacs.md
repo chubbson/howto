@@ -36,5 +36,5 @@ OrgZeroDrive. Native App fuer Emacs.
 BlendUML, als tool mit text um diagramme zu rendern in emacs output. 
 
 
-##### [[Org Mode basics]]
+##### [[Org Mode]]
 
