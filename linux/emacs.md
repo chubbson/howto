@@ -35,3 +35,8 @@ OrgZeroDrive. Native App fuer Emacs.
 
 BlendUML, als tool mit text um diagramme zu rendern in emacs output. 
 
+##### cheatsheet
+
+open file: `c-x c-f`
+close file: ''
+``

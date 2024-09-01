@@ -49,7 +49,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "rss reader.md",
+                "file": "linux/emacs.md",
                 "mode": "source",
                 "source": false
               }
@@ -122,7 +122,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "rss reader.md",
+                "file": "linux/emacs.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -137,7 +137,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 242.97837829589844
+    "width": 200
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -148,11 +148,11 @@
       "markdown-importer:Open format converter": false
     }
   },
-  "active": "8bdd2a2530740a3f",
+  "active": "f6a7a15477034dc5",
   "lastOpenFiles": [
-    "rss.md",
     "Newsboat.md",
     "rss reader.md",
+    "rss.md",
     "linux/emacs.md",
     "events/hmc.md",
     "Karl Voit.md",
