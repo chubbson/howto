@@ -1,4 +1,5 @@
 part of [[emacs]]
+https://orgmode.org/ 
 #### Basics
 
 Headings: `*`, `**`, `***` - different levels
@@ -14,4 +15,6 @@ Basing Commands:
 * shedule task: `c-c c-s`
 * set deadline: `c-c c-d`
 
-#### configu
+#### configuration
+
+chekout `~/.emacs` or `~/.emacs.d/init.el`
