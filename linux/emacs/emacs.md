@@ -52,4 +52,8 @@ exit emacs: `c-x c-c`
 
 default mode
 
-undo: ``
+undo: `c-/`
+redo: `c-x u`
+
+##### [[Org Mode basics]]
+

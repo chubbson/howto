@@ -17,3 +17,5 @@
 [[solo2]]
 
 [[emacs]]
+
+orgmode [[cheetsheet]]

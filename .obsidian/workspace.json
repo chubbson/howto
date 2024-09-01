@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "linux/emacs.md",
+                "file": "linux/emacs/emacs.md",
                 "mode": "source",
                 "source": true
               }
@@ -49,14 +49,26 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "linux/emacs.md",
+                "file": "linux/emacs/emacs.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "2d5c253cac166e50",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "linux/emacs/cheetsheet.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 4
       }
     ],
     "direction": "vertical"
@@ -122,7 +134,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "linux/emacs.md",
+                "file": "linux/emacs/cheetsheet.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -148,16 +160,20 @@
       "markdown-importer:Open format converter": false
     }
   },
-  "active": "f6a7a15477034dc5",
+  "active": "2d5c253cac166e50",
   "lastOpenFiles": [
+    "Cheatsheet.md",
+    "linux/emacs/emacs.md",
+    "linux/emacs/cheetsheet.md",
+    "linux/arch.md",
+    "linux/emacs",
+    "linux/emacs/Org Mode basics.md",
     "Newsboat.md",
     "rss reader.md",
     "rss.md",
-    "linux/emacs.md",
     "events/hmc.md",
     "Karl Voit.md",
     "markdown.md",
-    "Cheatsheet.md",
     "linux/solo2.md",
     "README.md",
     "linux/ProtonVPN.md",
@@ -172,7 +188,6 @@
     "linux/yay.md",
     "devel/git.md",
     "linux/aur.md",
-    "linux/arch.md",
     "devel/rust.md",
     "linux/less.md"
   ]
