@@ -1,4 +1,4 @@
-console based rss reader for arch. 
+console based [[rss]] reader for arch. 
 
 ## Installation
 
@@ -14,4 +14,12 @@ run `newsboat` select loaded feed etc..
 
 #### define config 
 
-`echo 'browser "firefox %u"'`
+```
+ echo 'browser "# set visible lines"' >> ~/.newsboat/config 
+ echo 'browser "show-read-feeds no"' >> ~/.newsboat/config
+ echo '#set default browser' > ~/.newsboat/config
+ echo 'browser "xdg-open %u"' >> ~/.newsboat/config      
+ echo '' >> ~/.newsboat/config           
+ echo '# set visible lines' >> ~/.newsboat/config 
+ echo 'show-read-feeds no' >> ~/.newsboat/config  
+```
