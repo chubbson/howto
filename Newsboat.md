@@ -11,3 +11,7 @@ or
 
 #### use 
 run `newsboat` select loaded feed etc..
+
+#### define config 
+
+`echo 'browser "firefox %u"'`
