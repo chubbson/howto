@@ -61,14 +61,26 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "linux/emacs/cheetsheet.md",
+                "file": "Cheatsheet.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "036c58a9ef99fb52",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "linux/emacs/Org Mode basics.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
         ],
-        "currentTab": 4
+        "currentTab": 5
       }
     ],
     "direction": "vertical"
@@ -134,7 +146,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "linux/emacs/cheetsheet.md",
+                "file": "linux/emacs/Org Mode basics.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -160,14 +172,14 @@
       "markdown-importer:Open format converter": false
     }
   },
-  "active": "2d5c253cac166e50",
+  "active": "036c58a9ef99fb52",
   "lastOpenFiles": [
-    "Cheatsheet.md",
     "linux/emacs/emacs.md",
-    "linux/emacs/cheetsheet.md",
+    "linux/emacs/Org Mode basics.md",
+    "linux/emacs/emacs cheatsheet.md",
+    "Cheatsheet.md",
     "linux/arch.md",
     "linux/emacs",
-    "linux/emacs/Org Mode basics.md",
     "Newsboat.md",
     "rss reader.md",
     "rss.md",

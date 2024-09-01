@@ -18,4 +18,4 @@
 
 [[emacs]]
 
-orgmode [[cheetsheet]]
+[[emacs cheatsheet]]
