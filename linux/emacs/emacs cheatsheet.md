@@ -1,5 +1,7 @@
 ##### [[Cheatsheet]]
 
+open emacs on console `emacs -Q -nw ./nodes.org`
+
 open file: `c-x c-f`
 safe file: `c-x c-s`
 
