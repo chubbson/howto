@@ -20,4 +20,8 @@ default mode
 undo: `c-/`
 redo: `c-x u`
 
+##### toggle modes
+
+cycling view: `c-u tab`
+
 
