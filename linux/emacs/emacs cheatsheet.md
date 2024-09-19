@@ -23,5 +23,5 @@ redo: `c-x u`
 ##### toggle modes
 
 cycling view: `c-u tab`
-
+toggel checkbox: `c-c c`
 
