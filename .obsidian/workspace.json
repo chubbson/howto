@@ -73,7 +73,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "linux/emacs/emacs cheatsheet.md",
+                "file": "linux/yay.md",
                 "mode": "source",
                 "source": false
               }
@@ -146,7 +146,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "linux/emacs/emacs cheatsheet.md",
+                "file": "linux/yay.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -174,9 +174,9 @@
   },
   "active": "036c58a9ef99fb52",
   "lastOpenFiles": [
-    "linux/emacs/emacs.md",
-    "linux/emacs/emacs cheatsheet.md",
     "linux/emacs/Org Mode.md",
+    "linux/emacs/emacs cheatsheet.md",
+    "linux/emacs/emacs.md",
     "Cheatsheet.md",
     "linux/arch.md",
     "linux/emacs",
