@@ -19,4 +19,4 @@ docker stop 192d2f23efce
 docker rm 192d2f23efce
 ```
 
-now we shou
+now we should cleanup docker stuff
