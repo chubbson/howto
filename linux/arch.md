@@ -23,7 +23,7 @@ alternative
 
 `pacman -Sy archlinux-keyring && pacman -Su`
 
-Folgendes schient nicht zu funktionieren: 
+Folgendes scheint nicht zu funktionieren: 
 ---
 1. Clean cached packages 
    https://wiki.archlinux.org/title/Pacman/Package_signing

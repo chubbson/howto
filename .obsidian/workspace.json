@@ -16,7 +16,9 @@
                 "file": "linux/emacs/emacs.md",
                 "mode": "source",
                 "source": true
-              }
+              },
+              "icon": "lucide-file",
+              "title": "emacs"
             }
           },
           {
@@ -28,7 +30,9 @@
                 "file": "rss reader.md",
                 "mode": "source",
                 "source": false
-              }
+              },
+              "icon": "lucide-file",
+              "title": "rss reader"
             }
           },
           {
@@ -40,7 +44,9 @@
                 "file": "Newsboat.md",
                 "mode": "source",
                 "source": false
-              }
+              },
+              "icon": "lucide-file",
+              "title": "Newsboat"
             }
           },
           {
@@ -52,7 +58,9 @@
                 "file": "linux/emacs/emacs.md",
                 "mode": "source",
                 "source": false
-              }
+              },
+              "icon": "lucide-file",
+              "title": "emacs"
             }
           },
           {
@@ -64,7 +72,9 @@
                 "file": "Cheatsheet.md",
                 "mode": "source",
                 "source": false
-              }
+              },
+              "icon": "lucide-file",
+              "title": "Cheatsheet"
             }
           },
           {
@@ -76,11 +86,27 @@
                 "file": "linux/monitoring.md",
                 "mode": "source",
                 "source": false
-              }
+              },
+              "icon": "lucide-file",
+              "title": "monitoring"
+            }
+          },
+          {
+            "id": "837a134bb5ed632b",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "linux/Udev.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Udev"
             }
           }
         ],
-        "currentTab": 5
+        "currentTab": 6
       }
     ],
     "direction": "vertical"
@@ -100,7 +126,9 @@
               "type": "file-explorer",
               "state": {
                 "sortOrder": "alphabetical"
-              }
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
             }
           },
           {
@@ -109,13 +137,15 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "tag:#Archlinux",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical"
-              }
+              },
+              "icon": "lucide-search",
+              "title": "Search"
             }
           },
           {
@@ -123,7 +153,9 @@
             "type": "leaf",
             "state": {
               "type": "bookmarks",
-              "state": {}
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
             }
           }
         ]
@@ -146,7 +178,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "linux/monitoring.md",
+                "file": "linux/Udev.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -154,7 +186,9 @@
                 "searchQuery": "",
                 "backlinkCollapsed": false,
                 "unlinkedCollapsed": true
-              }
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for Udev"
             }
           }
         ]
@@ -172,23 +206,25 @@
       "markdown-importer:Open format converter": false
     }
   },
-  "active": "036c58a9ef99fb52",
+  "active": "837a134bb5ed632b",
   "lastOpenFiles": [
+    "linux/solo2.md",
+    "linux/aur.md",
+    "linux/arch.md",
+    "linux/emacs/Org Mode.md",
+    "linux/emacs/emacs.md",
+    "events/hmc.md",
+    "linux/ssh.md",
     "linux/yay.md",
     "linux/monitoring.md",
-    "linux/emacs/Org Mode.md",
     "linux/emacs/emacs cheatsheet.md",
-    "linux/emacs/emacs.md",
     "Cheatsheet.md",
-    "linux/arch.md",
     "linux/emacs",
     "Newsboat.md",
     "rss reader.md",
     "rss.md",
-    "events/hmc.md",
     "Karl Voit.md",
     "markdown.md",
-    "linux/solo2.md",
     "README.md",
     "linux/ProtonVPN.md",
     "linux/Install.md",
@@ -198,9 +234,7 @@
     "events",
     "linux/Udev.md",
     "Untitled.canvas",
-    "linux/ssh.md",
     "devel/git.md",
-    "linux/aur.md",
     "devel/rust.md",
     "linux/less.md"
   ]
