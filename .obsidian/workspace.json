@@ -97,12 +97,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "linux/Udev.md",
+                "file": "linux/solo2.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Udev"
+              "title": "solo2"
             }
           }
         ],
@@ -178,7 +178,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "linux/Udev.md",
+                "file": "linux/solo2.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -188,7 +188,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for Udev"
+              "title": "Backlinks for solo2"
             }
           }
         ]
@@ -208,9 +208,10 @@
   },
   "active": "837a134bb5ed632b",
   "lastOpenFiles": [
+    "linux/arch.md",
+    "linux/Udev.md",
     "linux/solo2.md",
     "linux/aur.md",
-    "linux/arch.md",
     "linux/emacs/Org Mode.md",
     "linux/emacs/emacs.md",
     "events/hmc.md",
@@ -232,7 +233,6 @@
     "devel",
     "linux",
     "events",
-    "linux/Udev.md",
     "Untitled.canvas",
     "devel/git.md",
     "devel/rust.md",
