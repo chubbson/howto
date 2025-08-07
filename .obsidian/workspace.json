@@ -41,12 +41,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Newsboat.md",
+                "file": "linux/arch.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Newsboat"
+              "title": "arch"
             }
           },
           {
@@ -104,9 +104,23 @@
               "icon": "lucide-file",
               "title": "solo2"
             }
+          },
+          {
+            "id": "26de98d3ea4888e4",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "linux/arch.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "arch"
+            }
           }
         ],
-        "currentTab": 6
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -125,7 +139,8 @@
             "state": {
               "type": "file-explorer",
               "state": {
-                "sortOrder": "alphabetical"
+                "sortOrder": "alphabetical",
+                "autoReveal": false
               },
               "icon": "lucide-folder-closed",
               "title": "Files"
@@ -162,7 +177,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 180.5036334991455
+    "width": 200
   },
   "right": {
     "id": "7d6ac93e834d7f27",
@@ -178,7 +193,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "linux/solo2.md",
+                "file": "linux/arch.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -188,7 +203,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for solo2"
+              "title": "Backlinks for arch"
             }
           }
         ]
@@ -206,22 +221,22 @@
       "markdown-importer:Open format converter": false
     }
   },
-  "active": "837a134bb5ed632b",
+  "active": "20a28dc6c5d90300",
   "lastOpenFiles": [
+    "Newsboat.md",
     "linux/arch.md",
-    "linux/Udev.md",
-    "linux/solo2.md",
     "linux/aur.md",
+    "linux/yay.md",
+    "linux/solo2.md",
+    "Cheatsheet.md",
+    "linux/Udev.md",
     "linux/emacs/Org Mode.md",
     "linux/emacs/emacs.md",
     "events/hmc.md",
     "linux/ssh.md",
-    "linux/yay.md",
     "linux/monitoring.md",
     "linux/emacs/emacs cheatsheet.md",
-    "Cheatsheet.md",
     "linux/emacs",
-    "Newsboat.md",
     "rss reader.md",
     "rss.md",
     "Karl Voit.md",
