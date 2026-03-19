@@ -55,12 +55,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "linux/p14s.md",
+                "file": "linux/snapper.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "p14s"
+              "title": "snapper"
             }
           },
           {
@@ -207,7 +207,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "linux/p14s.md",
+                "file": "linux/snapper.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -217,7 +217,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for p14s"
+              "title": "Backlinks for snapper"
             }
           }
         ]
@@ -238,6 +238,7 @@
   },
   "active": "e9ef003dd69fe91c",
   "lastOpenFiles": [
+    "linux/p14s.md",
     "linux/Install.md.tmp.36140.1773960447242",
     "linux/p14s.md.tmp.36140.1773960443307",
     "Cheatsheet.md",
