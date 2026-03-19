@@ -14,12 +14,12 @@ See [[p14s]] for full system context.
 
 ### SSH & Keys
 
-- [ ] [[ssh]] - generate ed25519-sk key
-- [ ] [[ssh]] - enroll second SoloKey
-- [ ] [[ssh]] - add public key to GitHub
-- [ ] [[ssh]] - test `ssh -T git@github.com`
-- [ ] [[ssh]] - ssh-agent + passphrase
-- [ ] Clone Obsidian vault via SSH
+- [x] [[ssh]] - generate ed25519-sk key
+- [x] [[ssh]] - enroll second SoloKey
+- [x] [[ssh]] - add public key to GitHub
+- [x] [[ssh]] - test `ssh -T git@github.com`
+- [x] [[ssh]] - ssh-agent + passphrase (handled by GNOME keyring)
+- [x] Clone Obsidian vault via SSH
 
 ### System
 
