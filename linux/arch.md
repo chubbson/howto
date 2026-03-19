@@ -92,8 +92,51 @@ you can modify it in several ways. add what you want.
 20251030 - Broken GDM (GnomeDesktopManager)
 -------------------------------------------
 
-after `pacman -Syu` gnome didnt started. i had to add gdm-greeter to `etc/shadow` file. 
+after `pacman -Syu` gnome didnt started. i had to add gdm-greeter to `etc/shadow` file.
 
 * `sudo nano /etc/shadow`
 * add at the end `gdm-greeter:!*:0::::::` - `*!` means user needs no password. `0` means days since 1970.
+
+## Intel Arc 140V (P14s)
+
+Intel Arc 140V requires forcing the i915 driver.
+
+Add to `/etc/default/grub`:
+```
+GRUB_CMDLINE_LINUX_DEFAULT="... i915.force_probe=<device-id>"
+```
+
+Get device ID:
+```bash
+lspci -nn | grep -i vga
+# note the 4-digit hex ID in brackets e.g. [8086:7d55]
+# use the last part: 7d55
+```
+
+Regenerate GRUB config:
+```bash
+sudo grub-mkconfig -o /boot/grub/grub.cfg
+```
+
+Also install microcode (should already be present):
+```bash
+sudo pacman -S intel-ucode
+```
+
+## eGPU (GTX 1070 via Thunderbolt)
+
+eGPU is authorized via bolt:
+
+```bash
+# List Thunderbolt devices
+boltctl list
+
+# Authorize device
+boltctl enroll --policy auto <uuid>
+
+# Check status
+boltctl monitor
+```
+
+See [[p14s]] for full hardware context.
 

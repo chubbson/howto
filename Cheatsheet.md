@@ -19,3 +19,19 @@
 [[emacs]]
 
 [[emacs cheatsheet]]
+
+[[p14s]]
+
+[[luks]]
+
+[[snapper]]
+
+[[flatpak]]
+
+[[kvm]]
+
+[[docker]]
+
+[[secure-boot]]
+
+[[backup]]
