@@ -22,6 +22,21 @@ sudo systemctl enable --now docker
 sudo usermod -aG docker $USER
 ```
 
+## SQL Server Compose File
+
+Located at `~/docker/docker-compose-dev.yml`.
+
+```bash
+# Fix permissions for mssql user (uid 10001) — required on first run
+sudo chown 10001:10001 /vm/sqldata
+
+# Start
+docker compose -f ~/docker/docker-compose-dev.yml up -d
+
+# Stop
+docker compose -f ~/docker/docker-compose-dev.yml down
+```
+
 ## Common Commands
 
 ```bash
@@ -62,8 +77,8 @@ docker rmi <image>
 
 ## TODO
 
-- [ ] Write docker-compose for SQL Server (multiple versions)
-- [ ] Mount /vm/sqldata into container
+- [x] Write docker-compose for SQL Server (multiple versions)
+- [x] Mount /vm/sqldata into container
 - [ ] Verify SSMS connection from Windows VM via 192.168.122.1
 
 ## Related
