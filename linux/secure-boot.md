@@ -44,7 +44,7 @@ sudo sbctl create-keys
 sudo sbctl enroll-keys -m
 ```
 
-Enrolling the Platform Key exits Setup Mode. Secure Boot is now active on next boot.
+Enrolling the Platform Key exits Setup Mode.
 
 ### 3. Reinstall GRUB with modules embedded
 
@@ -77,6 +77,14 @@ sudo sbctl sign -s /boot/vmlinuz-linux
 # Confirm nothing missed
 sudo sbctl verify
 ```
+
+### 4.5. Enable Secure Boot in firmware
+
+Reboot into UEFI firmware settings (ThinkPad: **F1** during POST).
+
+Navigate to **Security → Secure Boot** and set Secure Boot to **Enabled**.
+
+Save and exit. The system will boot with Secure Boot active.
 
 ### 5. Reboot and verify
 
