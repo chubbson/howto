@@ -16,54 +16,93 @@ sudo pacman -S sbctl
 
 ## Setup
 
-```bash
-# Check current status
-sbctl status
+### 1. Enter UEFI Setup Mode
 
-# Create custom keys
+In UEFI firmware settings, clear all Secure Boot keys (deletes the Platform Key → enters Setup Mode). Do **not** re-enable Secure Boot yet.
+
+On ThinkPads the setting is under **Security → Secure Boot**. Look for one of:
+- "Reset to Setup Mode" or "Clear All Secure Boot Keys"
+- Switch "Secure Boot Mode" from **Standard** → **Custom**, then delete keys
+
+Just disabling Secure Boot is not enough — the Platform Key must actually be deleted.
+
+Confirm from running OS:
+```bash
+sbctl status
+# Setup Mode: Enabled
+```
+
+If `sbctl enroll-keys` fails with "File is immutable", the firmware is not truly in Setup Mode — go back and ensure all keys are cleared (not just Secure Boot disabled).
+
+### 2. Create and enroll keys
+
+```bash
 sudo sbctl create-keys
 
-# Enroll keys (include Microsoft keys for compatibility)
+# Always use -m to include Microsoft keys — required on ThinkPads
+# (firmware/OpROMs are Microsoft-signed; omitting -m can brick the system)
 sudo sbctl enroll-keys -m
+```
 
-# Sign bootloader and kernel
+Enrolling the Platform Key exits Setup Mode. Secure Boot is now active on next boot.
+
+### 3. Reinstall GRUB with modules embedded
+
+Required before signing — `grub-install` produces a new unsigned EFI binary. Also needed because since GRUB 2.06, `insmod` is blocked at runtime under Secure Boot (shim path). With `--disable-shim-lock` (own-keys path), GRUB's lockdown is bypassed so `insmod` still works, but `tpm` is embedded anyway.
+
+```bash
+sudo grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB \
+  --modules="tpm" --disable-shim-lock
+sudo grub-mkconfig -o /boot/grub/grub.cfg
+```
+
+### 4. Sign EFI binaries
+
+First discover all unsigned binaries UEFI will load:
+```bash
+sbctl verify
+```
+
+Then sign each flagged file with `-s` to register it for automatic re-signing via pacman hook:
+```bash
 sudo sbctl sign -s /boot/EFI/GRUB/grubx64.efi
-sudo sbctl sign -s /boot/grub/x86_64-efi/core.efi
+sudo sbctl sign -s /boot/EFI/BOOT/BOOTX64.EFI   # fallback bootloader path
 sudo sbctl sign -s /boot/vmlinuz-linux
 
-# Verify signed files
+# Confirm nothing missed
 sbctl verify
+```
 
-# List all signed files
-sbctl list-files
+### 5. Reboot and verify
+
+```bash
+bootctl
+# Secure Boot: enabled (user)  ← (user) confirms your keys are active
+
+sbctl status
 ```
 
 ## After kernel update
 
-Signed files need re-signing after kernel updates. With `-s` flag during initial sign, sbctl hooks into pacman and re-signs automatically.
+The `-s` flag registers files with sbctl's pacman hook — re-signing happens automatically on `pacman -Syu`.
 
+If you install a new kernel variant (e.g. `linux-lts`), sign it once manually:
 ```bash
-# Manual re-sign all registered files
-sudo sbctl sign-all
+sudo sbctl sign -s /boot/vmlinuz-linux-lts
 ```
 
-## Status Check
-
+Check registered files:
 ```bash
-sbctl status
-# Should show:
-# Installed: yes
-# Owner GUID: ...
-# Setup Mode: Disabled
-# Secure Boot: Enabled
+sbctl list-files
 ```
 
 ## TODO
 
 - [ ] Enable Setup Mode in UEFI firmware
-- [ ] Run sbctl create-keys + enroll-keys
-- [ ] Sign GRUB + kernel
-- [ ] Reboot and verify Secure Boot enabled
+- [ ] Run sbctl create-keys + enroll-keys -m
+- [ ] Reinstall GRUB with --disable-shim-lock
+- [ ] Sign all EFI binaries (use sbctl verify to discover)
+- [ ] Reboot and verify Secure Boot enabled (user mode)
 
 ## Related
 
