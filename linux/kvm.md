@@ -29,10 +29,51 @@ SQL Server runs in Docker on the host — Windows VM connects via `192.168.122.1
 ## Install
 
 ```bash
-sudo pacman -S qemu-full virt-manager libvirt dnsmasq
+sudo pacman -S qemu-full virt-manager libvirt dnsmasq swtpm
 sudo systemctl enable --now libvirtd
 sudo usermod -aG libvirt $USER
 ```
+
+VirtIO drivers ISO (for better disk/network performance):
+```bash
+yay -S virtio-win
+# ISO at: /var/lib/libvirt/images/virtio-win.iso
+```
+
+## VM Configuration
+
+- Firmware: UEFI (not BIOS) — required for Windows 11
+- Chipset: Q35
+- TPM: Emulated, TIS, version 2.0 (requires `swtpm`)
+- CPU: host-passthrough, 1 socket, 6 cores, 2 threads
+- NIC: virtio (better performance than e1000e)
+- Add VirtIO ISO as second CDROM for driver install
+
+## Create VM Disk
+
+```bash
+qemu-img create -f qcow2 /vm/windows.qcow2 250G
+```
+
+Resize later if needed (VM must be shut down):
+```bash
+qemu-img resize /vm/windows.qcow2 +50G
+# Then extend partition inside Windows via Disk Management
+```
+
+## Windows 11 Install — Bypass Requirements
+
+Windows 11 checks for TPM/Secure Boot during install. Bypass before selecting Windows version:
+
+Press **Shift+F10** at the first installer screen to open a command prompt, then:
+
+```cmd
+reg add HKLM\SYSTEM\Setup\LabConfig /v BypassTPMCheck /t REG_DWORD /d 1 /f
+reg add HKLM\SYSTEM\Setup\LabConfig /v BypassSecureBootCheck /t REG_DWORD /d 1 /f
+reg add HKLM\SYSTEM\Setup\LabConfig /v BypassRAMCheck /t REG_DWORD /d 1 /f
+```
+
+Close prompt, then proceed with selecting Windows version.
 
 ## Manage VMs
 
