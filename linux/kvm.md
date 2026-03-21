@@ -106,6 +106,24 @@ virsh net-start default
 virsh net-autostart default
 ```
 
+## File Sharing (Samba)
+
+Host shares `/home/me/shared` via Samba. Access from Windows VM:
+
+```
+\\192.168.122.1\shared
+```
+
+Credentials: username `me`, Samba password (set with `sudo smbpasswd -a me`).
+
+Samba config: `/etc/samba/smb.conf`
+
+```bash
+sudo systemctl enable --now smb nmb
+```
+
+Note: virtiofs (alternative) requires shared memory which breaks host hibernation — Samba is preferred.
+
 ## TODO
 
 - [ ] Create Windows VM (qcow2 on /vm)
