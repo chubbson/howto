@@ -126,7 +126,7 @@ Note: virtiofs (alternative) requires shared memory which breaks host hibernatio
 
 ## TODO
 
-- [ ] Create Windows VM (qcow2 on /vm)
+- [x] Create Windows VM (qcow2 on /vm)
 - [x] Install Visual Studio
 - [ ] Install Teams + Outlook
 - [x] Install SSMS
