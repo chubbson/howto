@@ -66,11 +66,16 @@ sbctl verify
 Then sign each flagged file with `-s` to register it for automatic re-signing via pacman hook:
 ```bash
 sudo sbctl sign -s /boot/EFI/GRUB/grubx64.efi
-sudo sbctl sign -s /boot/EFI/BOOT/BOOTX64.EFI   # fallback bootloader path
+sudo sbctl sign -s /boot/EFI/arch/fwupdx64.efi
+sudo sbctl sign -s /boot/grub/x86_64-efi/core.efi
+sudo sbctl sign -s /boot/grub/x86_64-efi/grub.efi
 sudo sbctl sign -s /boot/vmlinuz-linux
 
+# Fallback bootloader path — may not exist
+# sudo sbctl sign -s /boot/EFI/BOOT/BOOTX64.EFI
+
 # Confirm nothing missed
-sbctl verify
+sudo sbctl verify
 ```
 
 ### 5. Reboot and verify
@@ -98,10 +103,10 @@ sbctl list-files
 
 ## TODO
 
-- [ ] Enable Setup Mode in UEFI firmware
-- [ ] Run sbctl create-keys + enroll-keys -m
-- [ ] Reinstall GRUB with --disable-shim-lock
-- [ ] Sign all EFI binaries (use sbctl verify to discover)
+- [x] Enable Setup Mode in UEFI firmware
+- [x] Run sbctl create-keys + enroll-keys -m
+- [x] Reinstall GRUB with --disable-shim-lock
+- [x] Sign all EFI binaries (use sbctl verify to discover)
 - [ ] Reboot and verify Secure Boot enabled (user mode)
 
 ## Related
