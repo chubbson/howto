@@ -18,6 +18,16 @@ See [[p14s]] for disk layout. See [[luks]] for LUKS header backup.
 sudo mount /dev/sdb1 /mnt/backup/p14sg5/
 ```
 
+Use PARTUUID to mount regardless of device name (sda/sdb can shift):
+
+```bash
+# Get PARTUUID
+sudo blkid /dev/sda1
+
+# Mount by PARTUUID
+sudo mount /dev/disk/by-partuuid/bd09407f-01 /mnt/backup
+```
+
 ## Backup Contents
 
 Located at `/mnt/backup/p14sg5/`:
