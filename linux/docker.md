@@ -14,6 +14,8 @@ SQL data lives on the `/vm` partition (xfs) and is mounted into the container:
 
 Windows VM connects to SQL Server via host IP `192.168.122.1`.
 
+When connecting from SSMS: enable **"Trust server certificate"** in Options → Connection Security (SQL Server uses a self-signed certificate).
+
 ## Install
 
 ```bash
@@ -79,7 +81,7 @@ docker rmi <image>
 
 - [x] Write docker-compose for SQL Server (multiple versions)
 - [x] Mount /vm/sqldata into container
-- [ ] Verify SSMS connection from Windows VM via 192.168.122.1
+- [x] Verify SSMS connection from Windows VM via 192.168.122.1
 
 ## Related
 
