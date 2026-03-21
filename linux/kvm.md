@@ -127,7 +127,7 @@ Note: virtiofs (alternative) requires shared memory which breaks host hibernatio
 ## TODO
 
 - [ ] Create Windows VM (qcow2 on /vm)
-- [ ] Install Visual Studio
+- [x] Install Visual Studio
 - [ ] Install Teams + Outlook
 - [x] Install SSMS
 - [x] Verify SSMS → SQL Server connection via 192.168.122.1
