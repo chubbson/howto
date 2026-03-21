@@ -72,9 +72,51 @@ sudo cryptsetup luksHeaderRestore /dev/nvme0n1p3 \
   --header-backup-file /mnt/backup/p14sg5/luks-header-backup.img
 ```
 
+## Restore
+
+Mount the USB first, then navigate to the timestamped backup folder:
+
+```bash
+sudo mount /dev/disk/by-partuuid/bd09407f-01 /mnt/backup
+BACKUP=/mnt/backup/p14sg5/<timestamp>
+```
+
+### Partition table
+
+```bash
+sudo sfdisk /dev/nvme0n1 < $BACKUP/partition-table-backup.sfdisk
+```
+
+### LVM config
+
+```bash
+sudo vgcfgrestore -f $BACKUP/lvm-backup.cfg vg0
+```
+
+### System configs
+
+```bash
+sudo cp $BACKUP/crypttab-backup /etc/crypttab
+sudo cp $BACKUP/fstab-backup /etc/fstab
+sudo cp $BACKUP/mkinitcpio-backup /etc/mkinitcpio.conf
+sudo cp $BACKUP/grub-backup /etc/default/grub
+sudo cp $BACKUP/grub-cfg-backup /boot/grub/grub.cfg
+sudo cp -r $BACKUP/snapper-configs/* /etc/snapper/configs/
+```
+
+### Secure Boot keys
+
+```bash
+sudo cp -r $BACKUP/secureboot-keys /var/lib/sbctl/keys
+sudo sbctl enroll-keys -m
+sudo sbctl sign -s /boot/EFI/GRUB/grubx64.efi
+sudo sbctl sign -s /boot/vmlinuz-linux
+# sign remaining files as needed — see [[secure-boot]]
+```
+
 ## TODO
 
-- [ ] Test backup.sh run
+- [x] Test backup.sh run
 - [ ] Verify LUKS header backup is readable
 - [ ] Store USB in safe location
 
