@@ -117,7 +117,7 @@ sudo sbctl sign -s /boot/vmlinuz-linux
 ## TODO
 
 - [x] Test backup.sh run
-- [ ] Verify LUKS header backup is readable
+- [x] Verify LUKS header backup is readable
 - [ ] Store USB in safe location
 
 ## Related
