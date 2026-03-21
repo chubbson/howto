@@ -106,6 +106,35 @@ virsh net-start default
 virsh net-autostart default
 ```
 
+## DNS for VM
+
+By default libvirt's dnsmasq has no upstream forwarder configured. Add one via:
+
+```bash
+sudo EDITOR=nano virsh net-edit default
+```
+
+Add inside `<network>`:
+
+```xml
+<dns>
+  <forwarder addr='192.168.225.1'/>
+</dns>
+```
+
+Replace `192.168.225.1` with your host's DNS (check `cat /etc/resolv.conf`). Then restart the network:
+
+```bash
+sudo virsh net-destroy default
+sudo virsh net-start default
+```
+
+**Note:** Do not destroy/restart the network while the VM is running — it detaches the VM's NIC from the bridge. If this happens, fix with:
+
+```bash
+sudo ip link set vnet3 master virbr0
+```
+
 ## File Sharing (Samba)
 
 Host shares `/home/me/shared` via Samba. Access from Windows VM:
