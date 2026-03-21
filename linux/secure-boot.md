@@ -115,7 +115,7 @@ sbctl list-files
 - [x] Run sbctl create-keys + enroll-keys -m
 - [x] Reinstall GRUB with --disable-shim-lock
 - [x] Sign all EFI binaries (use sbctl verify to discover)
-- [ ] Reboot and verify Secure Boot enabled (user mode)
+- [x] Reboot and verify Secure Boot enabled (user mode)
 
 ## Related
 
