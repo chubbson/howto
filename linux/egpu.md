@@ -1,8 +1,8 @@
-# eGPU Setup — GTX 1070 via Thunderbolt
+# eGPU Setup — GTX 1080 Ti via Thunderbolt
 
 Tags: #egpu #nvidia #thunderbolt #gpu
 
-Hardware: Lenovo P14s Gen 5 (TB4) + GTX 1070 in Razer Core X V2 enclosure (TB5, backward compatible with TB4)
+Hardware: Lenovo P14s Gen 5 (TB4) + GTX 1080 Ti (11GB) in Razer Core X V2 enclosure (TB5, backward compatible with TB4)
 Use case: gaming, CUDA, external monitor (GNOME + Wayland)
 
 See [[p14s]] for system overview.
@@ -51,6 +51,7 @@ See [[p14s]] for system overview.
   pcie_ports=native pci=assign-busses,hpbussize=0x33,realloc,hpmmiosize=128M,hpmmioprefsize=16G pcie_aspm=off
   ```
   > `nvidia-drm.modeset=1` and `nvidia_drm.fbdev=1` are enabled by default in current nvidia-utils — no need to set manually. Verify after install: `cat /sys/module/nvidia_drm/parameters/modeset` and `fbdev` should return `Y`.
+  > `hpmmioprefsize=16G` — if eGPU fails to initialize or system is unstable, reduce to `512M`.
 
 - [ ] Create `/etc/modprobe.d/nvidia.conf` for suspend/hibernate stability:
   ```
