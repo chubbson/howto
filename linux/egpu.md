@@ -95,8 +95,8 @@ See [[p14s]] for system overview.
 
 ## Notes
 
-- eGPU must be plugged in **before** GNOME starts — hotplug into a running session is unreliable
-- Hot-unplug is **not supported** — always suspend/shutdown before disconnecting
+- Hotplug into a running Wayland/GNOME session should work via module reload (see workflow below)
+- Hot-unplug requires unloading nvidia modules first — do not disconnect without doing so
 - Thunderbolt bandwidth limits PCIe lanes — expect some performance overhead vs native PCIe
 - For Wayland hotplugging without reboot, unload/reload nvidia modules:
   ```
