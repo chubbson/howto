@@ -238,6 +238,9 @@
   },
   "active": "e9ef003dd69fe91c",
   "lastOpenFiles": [
+    "linux/problems.md.tmp.6016.1774207847269",
+    "linux/keychron.md",
+    "linux/keychron.md.tmp.6016.1774207832530",
     "linux/p14s.md",
     "linux/audio.md.tmp.6016.1774207206459",
     "linux/problems.md.tmp.13510.1774183978495",
@@ -252,7 +255,6 @@
     "linux/setup.md.tmp.7458.1774145531531",
     "linux/p14s.md.tmp.7458.1774145328145",
     "linux/setup.md.tmp.7458.1774145276859",
-    "linux/kvm.md.tmp.7458.1774125853397",
     "Cheatsheet.md",
     "linux/snapper.md",
     "linux/arch.md",
@@ -272,7 +274,6 @@
     "Karl Voit.md",
     "markdown.md",
     "README.md",
-    "linux/ProtonVPN.md",
     "Untitled.canvas"
   ]
 }

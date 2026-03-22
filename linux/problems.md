@@ -47,15 +47,33 @@ Remove any `i915.enable_psr=N` from GRUB cmdline — PSR is unrelated and defaul
 
 ---
 
+## 2026-03-22 — Keychron Q3 Pro: Wrong Characters on BT Reconnect
+
+**Status:** Fixed 2026-03-22 — `keychron-bt-fix.service` installed
+
+**Symptom:** On ~50-66% of boots, keyboard sends wrong/repeated characters after connecting via Bluetooth. Same incorrect chars each time.
+
+**Fix:** Systemd service compares HID report descriptor md5 at boot and forces a disconnect/reconnect if stale. Only acts when broken.
+
+See [[keychron]] for full details, script, and service file.
+
+---
+
 ## 2026-03-22 — Audio: Dummy Output (Intel Meteor Lake)
 
-**Status:** Pending fix
+**Status:** Fixed 2026-03-22
 
 **Symptom:** Only "Dummy Output" in PipeWire, no sound cards detected.
 
 **Cause:** Missing SOF firmware + possible kernel 6.16+ regression.
 
-See [[audio]] for full details and fix plan.
+**Fix:**
+```bash
+sudo pacman -S sof-firmware alsa-ucm-conf
+reboot
+```
+
+See [[audio]] for full details.
 
 ---
 

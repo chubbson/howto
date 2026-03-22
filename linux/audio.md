@@ -24,9 +24,10 @@ Note: A kernel 6.16 regression affecting Meteor Lake SOF init was reported (Arch
 
 ```bash
 sudo pacman -S sof-firmware alsa-ucm-conf
+reboot
 ```
 
-Then reboot.
+**Status:** Confirmed working on P14s Gen 5 (Meteor Lake-P, kernel 6.19.9-arch1-1) — 2026-03-22
 
 ## Diagnosis Commands
 

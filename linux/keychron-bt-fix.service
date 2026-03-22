@@ -1,0 +1,12 @@
+[Unit]
+Description=Fix Keychron Q3 Pro stale BT HID descriptor
+After=bluetooth.service
+Wants=bluetooth.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/keychron-bt-fix.sh
+RemainAfterExit=yes
+
+[Install]
+WantedBy=graphical.target
