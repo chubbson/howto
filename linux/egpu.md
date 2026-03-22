@@ -12,7 +12,8 @@ See [[p14s]] for system overview.
 ### BIOS (before first plug-in)
 
 - [ ] Boot into BIOS → Security → Thunderbolt
-- [ ] Set **Thunderbolt Security Level** to `secure` ("One time saved key") — authorized once, then remembered
+- [ ] Set **Thunderbolt Security Level** to `secure`
+  > If eGPU not detected on cold boot, try disabling **Fast Boot** in BIOS — it can cut short TB controller initialization. ("One time saved key") — authorized once, then remembered
   > ArchWiki recommends minimum `secure`. `none`/Legacy mode is a DMA attack risk.
 - [ ] Set **Thunderbolt BIOS Assist Mode** to `Disabled` — let Linux/kernel manage it
 - [ ] Check current security level from Linux: `cat /sys/bus/thunderbolt/devices/domain0/security`
