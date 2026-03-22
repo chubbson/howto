@@ -238,6 +238,10 @@
   },
   "active": "e9ef003dd69fe91c",
   "lastOpenFiles": [
+    "linux/problems.md",
+    "linux/problems.md.tmp.13510.1774183885000",
+    "linux/audio.md",
+    "linux/audio.md.tmp.13510.1774183804775",
     "linux/setup.md.tmp.13510.1774182563140",
     "linux/setup.md.tmp.13510.1774182154462",
     "linux/eza.md",
@@ -249,9 +253,6 @@
     "linux/kvm.md.tmp.7458.1774125853397",
     "linux/p14s.md.tmp.7458.1774125813233",
     "linux/p14s.md.tmp.7458.1774120410787",
-    "linux/kvm.md.tmp.7458.1774120356061",
-    "linux/kvm.md.tmp.7458.1774120250610",
-    "linux/docker.md.tmp.7458.1774116676016",
     "Cheatsheet.md",
     "linux/snapper.md",
     "linux/arch.md",
@@ -273,7 +274,6 @@
     "README.md",
     "linux/ProtonVPN.md",
     "linux/Install.md",
-    "linux/console.md",
     "Untitled.canvas"
   ]
 }
