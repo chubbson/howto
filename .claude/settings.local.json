@@ -1,7 +1,8 @@
 {
   "permissions": {
     "allow": [
-      "WebFetch(domain:wiki.archlinux.org)"
+      "WebFetch(domain:wiki.archlinux.org)",
+      "Bash(journalctl -b)"
     ]
   }
 }
