@@ -84,6 +84,11 @@ lazygit
 - **Azure Data Studio** (`yay -S azuredatastudio-bin`) — retired Feb 2026, kept as backup
 - **SSMS** — in Windows VM, for full DBA/profiler functionality
 
+## TODO
+
+- [ ] Run `p10k configure` after logout/login (needs zsh as default shell active)
+- [ ] Fix VS Code SQL Profiler (needs active connection context before launching)
+
 ## Related
 
 - [[p14s]] - system overview
