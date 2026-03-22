@@ -130,6 +130,14 @@ sudo pacman -S ripgrep
 
 See [[ripgrep]] for full reference.
 
+## btop (resource monitor)
+
+```bash
+sudo pacman -S btop
+```
+
+Better `htop` — CPU, memory, network, disk I/O graphs all at once. Launch with `btop`.
+
 ## man & tldr (documentation)
 
 ```bash
