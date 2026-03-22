@@ -4,7 +4,8 @@
       "WebFetch(domain:wiki.archlinux.org)",
       "Bash(journalctl -b)",
       "WebFetch(domain:bbs.archlinux.org)",
-      "Bash(curl -s -A \"Mozilla/5.0\" \"https://wiki.archlinux.org/title/Intel_graphics\")"
+      "Bash(curl -s -A \"Mozilla/5.0\" \"https://wiki.archlinux.org/title/Intel_graphics\")",
+      "Bash(curl -s \"https://wiki.archlinux.org/title/Thunderbolt\")"
     ]
   }
 }

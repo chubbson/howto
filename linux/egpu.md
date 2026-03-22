@@ -9,6 +9,16 @@ See [[p14s]] for system overview.
 
 ## Checklist
 
+### BIOS (before first plug-in)
+
+- [ ] Boot into BIOS → Security → Thunderbolt
+- [ ] Set **Thunderbolt Security Level** to `secure` ("One time saved key") — authorized once, then remembered
+  > ArchWiki recommends minimum `secure`. `none`/Legacy mode is a DMA attack risk.
+- [ ] Set **Thunderbolt BIOS Assist Mode** to `Disabled` — let Linux/kernel manage it
+- [ ] Check current security level from Linux: `cat /sys/bus/thunderbolt/devices/domain0/security`
+
+### Connect & Authorize
+
 - [ ] Plug in eGPU enclosure via Thunderbolt
 - [ ] Authorize Thunderbolt device: `boltctl list` → `boltctl authorize <uuid>`
 - [ ] Verify eGPU visible: `lspci | grep -i nvidia`
