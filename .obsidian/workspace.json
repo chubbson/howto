@@ -238,6 +238,9 @@
   },
   "active": "e9ef003dd69fe91c",
   "lastOpenFiles": [
+    "linux/p14s.md.tmp.10650.1774217630981",
+    "linux/egpu.md",
+    "linux/egpu.md.tmp.10650.1774217623175",
     "luks-backup.sh",
     "linux/problems.md.tmp.6016.1774207847269",
     "linux/keychron.md",
@@ -253,8 +256,6 @@
     "linux/setup.md.tmp.13510.1774182154462",
     "linux/eza.md",
     "linux/setup.md",
-    "linux/setup.md.tmp.7458.1774145531531",
-    "linux/p14s.md.tmp.7458.1774145328145",
     "Cheatsheet.md",
     "linux/snapper.md",
     "linux/arch.md",
@@ -273,7 +274,6 @@
     "rss.md",
     "Karl Voit.md",
     "markdown.md",
-    "README.md",
     "Untitled.canvas"
   ]
 }
