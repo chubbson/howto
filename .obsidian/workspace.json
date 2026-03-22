@@ -55,12 +55,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "linux/p14s.md",
+                "file": "linux/audio.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "p14s"
+              "title": "audio"
             }
           },
           {
@@ -207,7 +207,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "linux/p14s.md",
+                "file": "linux/audio.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -217,7 +217,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for p14s"
+              "title": "Backlinks for audio"
             }
           }
         ]
@@ -238,6 +238,8 @@
   },
   "active": "e9ef003dd69fe91c",
   "lastOpenFiles": [
+    "linux/p14s.md",
+    "linux/audio.md.tmp.6016.1774207206459",
     "linux/problems.md.tmp.13510.1774183978495",
     "linux/problems.md",
     "linux/problems.md.tmp.13510.1774183885000",
@@ -247,13 +249,10 @@
     "linux/setup.md.tmp.13510.1774182154462",
     "linux/eza.md",
     "linux/setup.md",
-    "linux/p14s.md",
     "linux/setup.md.tmp.7458.1774145531531",
     "linux/p14s.md.tmp.7458.1774145328145",
     "linux/setup.md.tmp.7458.1774145276859",
     "linux/kvm.md.tmp.7458.1774125853397",
-    "linux/p14s.md.tmp.7458.1774125813233",
-    "linux/p14s.md.tmp.7458.1774120410787",
     "Cheatsheet.md",
     "linux/snapper.md",
     "linux/arch.md",

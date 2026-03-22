@@ -8,23 +8,25 @@ Intel Meteor Lake-P HD Audio Controller shows only "Dummy Output" in PipeWire. K
 
 ## Root Cause
 
-Two separate issues:
+**Missing SOF firmware** — Meteor Lake DSP requires firmware binaries (`sof-firmware`) and UCM profiles (`alsa-ucm-conf`) to initialize. Without them, the driver loads but no sound card is registered.
 
-1. **Missing SOF firmware** — Meteor Lake DSP requires firmware binaries (`sof-firmware`) and UCM profiles (`alsa-ucm-conf`) to initialize. Without them, the driver loads but no sound card is registered.
+Confirmed via journalctl:
+```
+SOF firmware and/or topology file not found.
+ Firmware file: intel/sof-ipc4/mtl/sof-mtl.ri
+ Topology file: intel/sof-ipc4-tplg/sof-hda-generic-2ch.tplg
+error: sof_probe_work failed err: -2
+```
 
-2. **Kernel 6.16+ regression** — A kernel code change broke SOF driver initialization for Meteor Lake. Present in 6.16–6.19+. May or may not be patched in current kernel.
+Note: A kernel 6.16 regression affecting Meteor Lake SOF init was reported (Arch Forums) but is **patched and merged upstream** — not a concern on 6.19+.
 
-## Fix Plan
+## Fix
 
-- [ ] Install `linux-lts` as fallback kernel in case current kernel has the regression
-- [ ] Take snapper snapshots before proceeding
-- [ ] Install firmware packages:
-  ```bash
-  sudo pacman -S sof-firmware alsa-ucm-conf alsa-utils
-  ```
-- [ ] Reboot into current kernel — if audio works, done
-- [ ] If not, reboot into LTS kernel and test there
-- [ ] If LTS works, check Arch forums for kernel regression patch status
+```bash
+sudo pacman -S sof-firmware alsa-ucm-conf
+```
+
+Then reboot.
 
 ## Diagnosis Commands
 
