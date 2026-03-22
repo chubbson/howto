@@ -11,11 +11,9 @@ See [[p14s]] for system overview.
 
 ### BIOS (before first plug-in)
 
-- [ ] Boot into BIOS → Security → Thunderbolt
-- [ ] Set **Thunderbolt Security Level** to `secure`
-  > If eGPU not detected on cold boot, try disabling **Fast Boot** in BIOS — it can cut short TB controller initialization. ("One time saved key") — authorized once, then remembered
-  > ArchWiki recommends minimum `secure`. `none`/Legacy mode is a DMA attack risk.
-- [ ] Set **Thunderbolt BIOS Assist Mode** to `Disabled` — let Linux/kernel manage it
+- [x] Boot into BIOS → Security → Thunderbolt
+  > P14s Gen 5: option names differ from ArchWiki. Found a Thunderbolt enable/disable toggle and a second option (name TBD) recommended to enable to avoid eGPU connection problems — enable it.
+  > The exact labels "Thunderbolt Security Level" and "Thunderbolt BIOS Assist Mode" were NOT present — update this note with actual names when revisiting BIOS.
 - [ ] Check current security level from Linux: `cat /sys/bus/thunderbolt/devices/domain0/security`
 
 ### Connect & Authorize
