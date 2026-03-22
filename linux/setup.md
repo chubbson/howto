@@ -130,6 +130,20 @@ sudo pacman -S ripgrep
 
 See [[ripgrep]] for full reference.
 
+## procs (better ps)
+
+```bash
+sudo pacman -S procs
+```
+
+```bash
+procs                  # all processes
+procs nginx            # search by name
+procs --tree           # process tree
+procs --watch          # live update
+procs --watch nginx    # live filtered view
+```
+
 ## btop (resource monitor)
 
 ```bash
