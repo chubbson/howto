@@ -18,17 +18,22 @@ See [[p14s]] for system overview.
 
 ### Connect & Authorize
 
-- [ ] Plug in eGPU enclosure via Thunderbolt
-- [ ] Authorize Thunderbolt device: `boltctl list` → `boltctl authorize <uuid>`
-- [ ] Verify eGPU visible: `lspci | grep -i nvidia`
+- [x] Plug in eGPU enclosure via Thunderbolt
+- [x] Authorize Thunderbolt device: `boltctl list` → `boltctl authorize <uuid>`
+  > Razer Core X V2 — uuid: 8ab48780-00c5-3daa-ffff-ffffffffffff, authorized automatically, policy: iommu, 40 Gb/s both directions
+- [x] Verify eGPU visible: `lspci | grep -i nvidia`
+  > `52:00.0 VGA compatible controller: NVIDIA Corporation GP102 [GeForce GTX 1080 Ti]`
 - [ ] Note BusID from `lspci` output (convert hex → decimal for Xorg config)
+  > Bus 52 decimal = 0x34 hex → BusID "PCI:82:0:0" — verify after reboot
 
 ### Drivers
 
-- [ ] Install Nvidia drivers:
+- [x] Install Nvidia drivers:
   ```
-  sudo pacman -S nvidia-dkms nvidia-utils lib32-nvidia-utils nvidia-prime
+  sudo pacman -S nvidia-dkms nvidia-utils nvidia-prime
   ```
+  > `lib32-nvidia-utils` skipped — multilib repo not enabled. Only needed for 32-bit apps (Steam/Wine).
+  > Installed `nvidia-open-dkms-590.48.01` — kernel headers (`linux-headers`) were missing initially, installed separately.
 - [ ] Verify: `nvidia-smi`
 
 ### Initramfs
@@ -45,25 +50,26 @@ See [[p14s]] for system overview.
 
 ### Kernel Parameters
 
-- [ ] Add to `GRUB_CMDLINE_LINUX_DEFAULT` in `/etc/default/grub`:
+- [x] Add to `GRUB_CMDLINE_LINUX_DEFAULT` in `/etc/default/grub`:
   ```
   pcie_ports=native pci=assign-busses,hpbussize=0x33,realloc,hpmmiosize=128M,hpmmioprefsize=16G pcie_aspm=off
   ```
   > `nvidia-drm.modeset=1` and `nvidia_drm.fbdev=1` are enabled by default in current nvidia-utils — no need to set manually. Verify after install: `cat /sys/module/nvidia_drm/parameters/modeset` and `fbdev` should return `Y`.
   > `hpmmioprefsize=16G` — if eGPU fails to initialize or system is unstable, reduce to `512M`.
 
-- [ ] Create `/etc/modprobe.d/nvidia.conf` for suspend/hibernate stability:
+- [x] Create `/etc/modprobe.d/nvidia.conf` for suspend/hibernate stability:
   ```
   options nvidia NVreg_PreserveVideoMemoryAllocations=1 NVreg_TemporaryFilePath=/var/tmp
   ```
   > `NVreg_EnableGpuFirmware=0` only needed if you experience GSP-related issues — GTX 1070 doesn't use GSP anyway.
 
-- [ ] Enable Nvidia suspend/hibernate services:
+- [x] Enable Nvidia suspend/hibernate services:
   ```
   sudo systemctl enable nvidia-suspend.service nvidia-hibernate.service nvidia-resume.service
   ```
+  > nvidia-resume was auto-enabled by nvidia-utils install. All three confirmed enabled.
 
-- [ ] Regenerate GRUB config:
+- [x] Regenerate GRUB config:
   ```
   sudo grub-mkconfig -o /boot/grub/grub.cfg
   ```
