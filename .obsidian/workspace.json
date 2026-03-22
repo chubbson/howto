@@ -238,6 +238,9 @@
   },
   "active": "e9ef003dd69fe91c",
   "lastOpenFiles": [
+    "linux/p14s.md.tmp.7458.1774145328145",
+    "linux/setup.md",
+    "linux/setup.md.tmp.7458.1774145276859",
     "linux/kvm.md.tmp.7458.1774125853397",
     "linux/p14s.md.tmp.7458.1774125813233",
     "linux/p14s.md.tmp.7458.1774120410787",
@@ -247,8 +250,6 @@
     "linux/kvm.md.tmp.7458.1774116660902",
     "linux/docker.md.tmp.7458.1774116644742",
     "linux/kvm.md.tmp.7458.1774114936821",
-    "linux/docker.md.tmp.7458.1774111926989",
-    "linux/docker.md.tmp.7458.1774111890468",
     "Cheatsheet.md",
     "linux/snapper.md",
     "linux/p14s.md",
@@ -273,7 +274,6 @@
     "linux/Install.md",
     "linux/console.md",
     "Untitled.canvas",
-    "devel/git.md",
-    "devel/rust.md"
+    "devel/git.md"
   ]
 }
