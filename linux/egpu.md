@@ -37,8 +37,21 @@ See [[p14s]] for system overview.
 
 - [ ] Add to `GRUB_CMDLINE_LINUX_DEFAULT` in `/etc/default/grub`:
   ```
-  pcie_ports=native pci=assign-busses,hpbussize=0x33,realloc,hpmmiosize=128M,hpmmioprefsize=16G
+  pcie_ports=native pci=assign-busses,hpbussize=0x33,realloc,hpmmiosize=128M,hpmmioprefsize=16G pcie_aspm=off
   ```
+  > `nvidia-drm.modeset=1` and `nvidia_drm.fbdev=1` are enabled by default in current nvidia-utils — no need to set manually. Verify after install: `cat /sys/module/nvidia_drm/parameters/modeset` and `fbdev` should return `Y`.
+
+- [ ] Create `/etc/modprobe.d/nvidia.conf` for suspend/hibernate stability:
+  ```
+  options nvidia NVreg_PreserveVideoMemoryAllocations=1 NVreg_TemporaryFilePath=/var/tmp
+  ```
+  > `NVreg_EnableGpuFirmware=0` only needed if you experience GSP-related issues — GTX 1070 doesn't use GSP anyway.
+
+- [ ] Enable Nvidia suspend/hibernate services:
+  ```
+  sudo systemctl enable nvidia-suspend.service nvidia-hibernate.service nvidia-resume.service
+  ```
+
 - [ ] Regenerate GRUB config:
   ```
   sudo grub-mkconfig -o /boot/grub/grub.cfg
