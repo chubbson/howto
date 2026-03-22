@@ -2,7 +2,7 @@
 
 Tags: #egpu #nvidia #thunderbolt #gpu
 
-Hardware: Lenovo P14s Gen 5 + GTX 1070 eGPU enclosure via Thunderbolt
+Hardware: Lenovo P14s Gen 5 (TB4) + GTX 1070 in Razer Core X V2 enclosure (TB5, backward compatible with TB4)
 Use case: gaming, CUDA, external monitor (GNOME + Wayland)
 
 See [[p14s]] for system overview.
