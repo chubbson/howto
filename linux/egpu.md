@@ -18,7 +18,7 @@ See [[p14s]] for system overview.
 
 - [ ] Install Nvidia drivers:
   ```
-  sudo pacman -S nvidia nvidia-utils lib32-nvidia-utils nvidia-prime
+  sudo pacman -S nvidia-dkms nvidia-utils lib32-nvidia-utils nvidia-prime
   ```
 - [ ] Verify: `nvidia-smi`
 
