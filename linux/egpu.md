@@ -41,6 +41,7 @@ See [[p14s]] for system overview.
   ```
   sudo mkinitcpio -P
   ```
+  > Only needed if eGPU is not detected on cold boot. Not required when root is on NVMe — thunderbolt module loads fine without early initramfs inclusion. Skip and add only if boot detection issues appear.
 
 ### Kernel Parameters
 
