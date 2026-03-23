@@ -33,7 +33,8 @@ See [[p14s]] for system overview.
   sudo pacman -S nvidia-dkms nvidia-utils nvidia-prime
   ```
   > `lib32-nvidia-utils` skipped — multilib repo not enabled. Only needed for 32-bit apps (Steam/Wine).
-  > **Use `nvidia-dkms` (proprietary), NOT `nvidia-open-dkms`.** GTX 1080 Ti is Pascal (GP102) — open-source nvidia modules only support Turing (RTX 20xx / GTX 16xx) and newer. Using open modules causes probe failure: "does not include the required GPU".
+  > **GTX 1080 Ti is Pascal (GP102) — open-source nvidia modules (nvidia-open-dkms) do NOT support Pascal with driver 590+.** Using open modules causes probe failure: "does not include the required GPU".
+  > **Arch official repos only ship open-source modules.** For Pascal, need proprietary driver from AUR: `nvidia-dkms` (AUR, proprietary 590.x) or `nvidia-470xx-dkms` (AUR, legacy 470.x, EOL but stable for Pascal).
   > Kernel headers (`linux-headers`) were missing initially, installed separately.
 - [ ] Verify: `nvidia-smi`
 
