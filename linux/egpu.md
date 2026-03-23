@@ -24,17 +24,22 @@ See [[p14s]] for system overview.
 - [x] Verify eGPU visible: `lspci | grep -i nvidia`
   > `52:00.0 VGA compatible controller: NVIDIA Corporation GP102 [GeForce GTX 1080 Ti]`
 - [ ] Note BusID from `lspci` output (convert hex → decimal for Xorg config)
-  > Bus 52 decimal = 0x34 hex → BusID "PCI:82:0:0" — verify after reboot
+  > After reboot: `6a:00.0` → 0x6a = 106 decimal → BusID "PCI:106:0:0"
 
 ### Drivers
 
 - [x] Install Nvidia drivers:
   ```
-  sudo pacman -S nvidia-dkms nvidia-utils nvidia-prime
+  yay -S nvidia-580xx-dkms
+  sudo pacman -S nvidia-prime
   ```
+  > **GTX 1080 Ti is Pascal (GP102) — requires proprietary driver from AUR.**
+  > - `nvidia-open-dkms` (official repos, 590+): open-source, does NOT support Pascal → probe failure
+  > - `nvidia-dkms` / `nvidia` (official repos): Arch dropped proprietary packages from official repos for 590+
+  > - `nvidia-580xx-dkms` (AUR): proprietary, covers Maxwell/Pascal/Volta — **correct choice**
+  > - `nvidia-470xx-dkms` (AUR): for Kepler only, unsupported — **wrong for Pascal**
+  > `yay -S nvidia-580xx-dkms` also installs `nvidia-580xx-utils` (replaces `nvidia-utils`) and `dkms`.
   > `lib32-nvidia-utils` skipped — multilib repo not enabled. Only needed for 32-bit apps (Steam/Wine).
-  > **GTX 1080 Ti is Pascal (GP102) — open-source nvidia modules (nvidia-open-dkms) do NOT support Pascal with driver 590+.** Using open modules causes probe failure: "does not include the required GPU".
-  > **Arch official repos only ship open-source modules (Turing+ only).** For Pascal, use AUR: `nvidia-580xx-dkms` — covers Maxwell/Pascal/Volta, legacy but supported. Do NOT use `nvidia-470xx-dkms` (that's for Kepler, unsupported).
   > Kernel headers (`linux-headers`) were missing initially, installed separately.
 - [ ] Verify: `nvidia-smi`
 
