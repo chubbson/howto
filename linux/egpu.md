@@ -34,7 +34,7 @@ See [[p14s]] for system overview.
   ```
   > `lib32-nvidia-utils` skipped — multilib repo not enabled. Only needed for 32-bit apps (Steam/Wine).
   > **GTX 1080 Ti is Pascal (GP102) — open-source nvidia modules (nvidia-open-dkms) do NOT support Pascal with driver 590+.** Using open modules causes probe failure: "does not include the required GPU".
-  > **Arch official repos only ship open-source modules.** For Pascal, need proprietary driver from AUR: `nvidia-dkms` (AUR, proprietary 590.x) or `nvidia-470xx-dkms` (AUR, legacy 470.x, EOL but stable for Pascal).
+  > **Arch official repos only ship open-source modules (Turing+ only).** For Pascal, use AUR: `nvidia-580xx-dkms` — covers Maxwell/Pascal/Volta, legacy but supported. Do NOT use `nvidia-470xx-dkms` (that's for Kepler, unsupported).
   > Kernel headers (`linux-headers`) were missing initially, installed separately.
 - [ ] Verify: `nvidia-smi`
 
