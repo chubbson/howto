@@ -23,8 +23,8 @@ See [[p14s]] for system overview.
   > Razer Core X V2 — uuid: 8ab48780-00c5-3daa-ffff-ffffffffffff, authorized automatically, policy: iommu, 40 Gb/s both directions
 - [x] Verify eGPU visible: `lspci | grep -i nvidia`
   > `52:00.0 VGA compatible controller: NVIDIA Corporation GP102 [GeForce GTX 1080 Ti]`
-- [ ] Note BusID from `lspci` output (convert hex → decimal for Xorg config)
-  > After reboot: `6a:00.0` → 0x6a = 106 decimal → BusID "PCI:106:0:0"
+- [x] Note BusID from `lspci` output (convert hex → decimal for Xorg config)
+  > After reboot: `37:00.0` → 0x37 = 55 decimal → BusID "PCI:55:0:0"
 
 ### Drivers
 
@@ -41,28 +41,28 @@ See [[p14s]] for system overview.
   > `yay -S nvidia-580xx-dkms` also installs `nvidia-580xx-utils` (replaces `nvidia-utils`) and `dkms`.
   > `lib32-nvidia-utils` skipped — multilib repo not enabled. Only needed for 32-bit apps (Steam/Wine).
   > Kernel headers (`linux-headers`) were missing initially, installed separately.
-- [ ] Verify: `nvidia-smi`
+- [x] Verify: `nvidia-smi`
+  > GTX 1080 Ti, driver 580.142, CUDA 13.0 ✓
 
 ### Initramfs
 
-- [ ] Add `thunderbolt` to `MODULES` in `/etc/mkinitcpio.conf`:
+- [x] Add `thunderbolt` to `MODULES` in `/etc/mkinitcpio.conf`:
   ```
-  MODULES=(... thunderbolt)
+  MODULES=(thunderbolt)
   ```
-- [ ] Regenerate initramfs:
+- [x] Regenerate initramfs:
   ```
   sudo mkinitcpio -P
   ```
-  > Only needed if eGPU is not detected on cold boot. Not required when root is on NVMe — thunderbolt module loads fine without early initramfs inclusion. Skip and add only if boot detection issues appear.
+  > Ensures thunderbolt module is available early in boot before nvidia driver initializes.
 
 ### Kernel Parameters
 
 > **Note:** `pcie_ports=native` dropped — caused display flickering and cursor jumping on the Intel Arc 140V iGPU (takes PCIe management away from firmware, disrupting the Arc display link). Do not re-add.
 
-Current active cmdline: `loglevel=3 quiet pcie_aspm=off xe.enable_psr=0 pci=assign-busses,realloc nvidia-drm.modeset=1 iommu=pt`
+Current active cmdline: `loglevel=3 quiet pci=assign-busses,hpbussize=0x33,realloc,hpmmiosize=128M,hpmmioprefsize=16G`
 
-- [ ] **Cleanup** — Check if `xe.enable_psr=0` can be removed once eGPU is stable
-  > PSR (Panel Self Refresh) was disabled to work around Arc iGPU display issues. May no longer be needed — test by removing it and checking for flickering/cursor issues on internal display. Unrelated to eGPU but lives in the same cmdline.
+- [x] **Cleanup** — `xe.enable_psr=0` removed — no flickering observed, internal display stable without it.
 
 #### Step-by-step debug (add one at a time, reboot, test `nvidia-smi` each time)
 
@@ -82,31 +82,31 @@ Current active cmdline: `loglevel=3 quiet pcie_aspm=off xe.enable_psr=0 pci=assi
 
 - [x] **Step 3** — Add `nvidia.NVreg_EnableGpuFirmware=0`
   > Disables GSP firmware. GTX 1080 Ti (Pascal/GP102) doesn't support GSP — newer drivers (560+) enable it by default and it can cause init failure on older eGPUs.
-  ```
-  GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet pcie_aspm=off xe.enable_psr=0 pci=assign-busses,realloc nvidia-drm.modeset=1 nvidia.NVreg_EnableGpuFirmware=0"
-  ```
-  > This matches the working machine config (minus `nvidia_drm.fbdev=1` which causes "Flip event timeout" on drivers 545+).
   > Result: `nvidia-smi` still "No devices were found". dmesg showed `RmInitAdapter failed! (0x22:0x56:897)` — driver detects GPU on PCIe bus, BARs assigned, but IOMMU (force-enabled by platform) blocks nvidia's DMA init.
 
 - [x] **Step 4** — Add `iommu=pt`
-  > IOMMU passthrough mode. `dmesg` showed `DMAR: Intel-IOMMU force enabled due to platform opt in` and repeated `RmInitAdapter failed (0x22:0x56:897)`. The strict IOMMU DMA translation was blocking nvidia's adapter init. `iommu=pt` disables strict translation, allowing the driver to initialize.
-  ```
-  GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet pcie_aspm=off xe.enable_psr=0 pci=assign-busses,realloc nvidia-drm.modeset=1 nvidia.NVreg_EnableGpuFirmware=0 iommu=pt"
-  ```
-  > Result: IOMMU error gone from dmesg, but `RmInitAdapter failed! (0x22:0x56:897)` persists. IOMMU was not the root cause (or not the only one). BARs are properly allocated (Region 1: 256M prefetchable at 0x4010000000, Region 3: 32M prefetchable). PCIe link running at 2.5 GT/s x4 (Gen1) via TB4 root port 00:07.2. `/usr/lib/firmware/nvidia/gp102/` exists — 580.x ships GSP firmware for Pascal.
+  > IOMMU passthrough mode. `dmesg` showed `DMAR: Intel-IOMMU force enabled due to platform opt in` and repeated `RmInitAdapter failed (0x22:0x56:897)`.
+  > Result: IOMMU error gone from dmesg, but `RmInitAdapter failed! (0x22:0x56:897)` persists. PCIe link running at 2.5 GT/s x4 (Gen1). `/usr/lib/firmware/nvidia/gp102/` exists — 580.x ships GSP firmware for Pascal.
 
-- [ ] **Step 5** — Remove `nvidia.NVreg_EnableGpuFirmware=0`
-  > 580.x driver ships GSP firmware for gp102 (GTX 1080 Ti). Setting `NVreg_EnableGpuFirmware=0` may be blocking firmware that 580.x now requires for Pascal. Try with GSP enabled.
-  ```
-  GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet pcie_aspm=off xe.enable_psr=0 pci=assign-busses,realloc nvidia-drm.modeset=1 iommu=pt"
-  ```
-  After reboot: `nvidia-smi` and `sudo dmesg | grep -iE "nvrm|gsp|firmware"`
+- [x] **Step 5** — Remove `nvidia.NVreg_EnableGpuFirmware=0` from cmdline
+  > Result: **Still fails.** 580.x makes no GSP attempt before `RmInitAdapter failed!`. Kernel cmdline approach exhausted — moved fix to modprobe.d and expanded pci= params.
 
-- [x] Create `/etc/modprobe.d/nvidia.conf` for suspend/hibernate stability:
+- [x] **Step 6** — Fix via modprobe.d + extended pci= params  *(supersedes 470xx fallback plan)*
+  > `NVreg_EnableGpuFirmware=0` in modprobe.d (not kernel cmdline) + switching pci= params to `hpbussize=0x33,hpmmiosize=128M,hpmmioprefsize=16G` finally initialized the adapter.
+  > Final working cmdline: `loglevel=3 quiet pci=assign-busses,hpbussize=0x33,realloc,hpmmiosize=128M,hpmmioprefsize=16G`
+  > See modprobe.d section below. **`nvidia-smi` works.** ✓
+  > ~~Switch to nvidia-470xx-dkms~~ — not needed, 580xx works.
+
+- [x] Create `/etc/modprobe.d/nvidia.conf`:
   ```
-  options nvidia NVreg_PreserveVideoMemoryAllocations=1 NVreg_TemporaryFilePath=/var/tmp
+  softdep nvidia pre: thunderbolt
+
+  options nvidia NVreg_PreserveVideoMemoryAllocations=1 NVreg_TemporaryFilePath=/var/tmp NVreg_UsePageAttributeTable=1 NVreg_EnableGpuFirmware=0 NVreg_EnablePCIeGen3=3
   ```
-  > `NVreg_EnableGpuFirmware=0` only needed if you experience GSP-related issues — GTX 1070 doesn't use GSP anyway.
+  > `NVreg_EnableGpuFirmware=0` — disables GSP firmware; 580.x has silent GSP init failure for Pascal (GP102) over Thunderbolt.
+  > `NVreg_EnablePCIeGen3=3` — forces Gen 3 negotiation; link was stuck at 2.5 GT/s (Gen 1) over TB4.
+  > `softdep nvidia pre: thunderbolt` — ensures thunderbolt module loads before nvidia.
+  > See [[modprobe.d-nvidia]] for full option reference.
 
 - [x] Enable Nvidia suspend/hibernate services:
   ```
@@ -189,3 +189,4 @@ Current active cmdline: `loglevel=3 quiet pcie_aspm=off xe.enable_psr=0 pci=assi
 - [[p14s]] - system overview
 - [[secure-boot]] - sbctl signing
 - [[arch]] - kernel parameters
+- [[modprobe.d-nvidia]] - nvidia modprobe options reference
