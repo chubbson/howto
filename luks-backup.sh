@@ -35,6 +35,7 @@ cp /etc/crypttab $BACKUP_DIR/crypttab-backup
 cp /etc/fstab $BACKUP_DIR/fstab-backup
 cp /etc/mkinitcpio.conf $BACKUP_DIR/mkinitcpio-backup
 cp /etc/default/grub $BACKUP_DIR/grub-backup
+cp /etc/modprobe.d/nvidia.conf $BACKUP_DIR/modprobe-nvidia-backup
 
 # Secure Boot keys
 echo "Backing up Secure Boot keys..."                                                                                                                                                       
