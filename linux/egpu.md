@@ -101,12 +101,20 @@ Current active cmdline: `loglevel=3 quiet pci=assign-busses,hpbussize=0x33,reall
   ```
   softdep nvidia pre: thunderbolt
 
-  options nvidia NVreg_PreserveVideoMemoryAllocations=1 NVreg_TemporaryFilePath=/var/tmp NVreg_UsePageAttributeTable=1 NVreg_EnableGpuFirmware=0 NVreg_EnablePCIeGen3=3
+  options nvidia \
+    NVreg_PreserveVideoMemoryAllocations=1 \
+    NVreg_TemporaryFilePath=/var/tmp \
+    NVreg_UsePageAttributeTable=1 \
+    NVreg_EnableGpuFirmware=0
+
+  # NVreg_EnablePCIeGen3=3
   ```
-  > `NVreg_EnableGpuFirmware=0` — disables GSP firmware; 580.x has silent GSP init failure for Pascal (GP102) over Thunderbolt.
-  > `NVreg_EnablePCIeGen3=3` — forces Gen 3 negotiation; link was stuck at 2.5 GT/s (Gen 1) over TB4.
+  > `NVreg_EnableGpuFirmware=0` — disables GSP firmware; 580.x has silent GSP init failure for Pascal (GP102) over Thunderbolt. **This was the key fix.**
+  > `NVreg_EnablePCIeGen3=3` — commented out / pending. Link currently at 2.5 GT/s Gen1 x4 — uncomment to attempt Gen3 negotiation.
   > `softdep nvidia pre: thunderbolt` — ensures thunderbolt module loads before nvidia.
   > See [[modprobe.d-nvidia]] for full option reference.
+
+- [ ] **Pending** — Uncomment `NVreg_EnablePCIeGen3=3` in `/etc/modprobe.d/nvidia.conf`, rebuild initramfs, reboot, verify with `cat /sys/bus/pci/devices/0000:37:00.0/current_link_speed` (target: 8 GT/s Gen3)
 
 - [x] Enable Nvidia suspend/hibernate services:
   ```
@@ -138,11 +146,11 @@ Current active cmdline: `loglevel=3 quiet pci=assign-busses,hpbussize=0x33,reall
   Section "Device"
       Identifier "Device1"
       Driver     "nvidia"
-      BusID      "PCI:<decimal-bus-id>"
+      BusID      "PCI:55:0:0"
       Option     "AllowExternalGpus" "True"
   EndSection
   ```
-  > BusID: convert hex from `lspci` to decimal (e.g. `1a:10.3` → `26:16:3`)
+  > BusID: `37:00.0` → 0x37 = 55 decimal → `PCI:55:0:0`
 
 - [ ] To run a program on eGPU:
   ```
@@ -166,9 +174,10 @@ Current active cmdline: `loglevel=3 quiet pci=assign-busses,hpbussize=0x33,reall
   > `52:00.0 VGA compatible controller: NVIDIA Corporation GP102 [GeForce GTX 1080 Ti]` ✓
 - [x] Check driver loaded: `lsmod | grep nvidia`
   > `nvidia`, `nvidia_modeset`, `nvidia_drm`, `nvidia_uvm` all loaded ✓
-- [ ] Check device nodes exist: `ls /dev/nvidia*`
-- [ ] Check CUDA/compute: `nvidia-smi`
-  > Currently fails: "No devices were found" — driver loads but GPU not initialized. Working through kernel param steps above.
+- [x] Check device nodes exist: `ls /dev/nvidia*`
+  > `/dev/nvidia0`, `/dev/nvidiactl`, `/dev/nvidia-modeset`, `/dev/nvidia-uvm`, `/dev/nvidia-uvm-tools` ✓
+- [x] Check CUDA/compute: `nvidia-smi`
+  > GTX 1080 Ti, 580.142, CUDA 13.0, 32°C idle ✓
 - [ ] Test PRIME offload: `prime-run glxinfo | grep renderer`
 - [ ] Test external monitor (connect to eGPU enclosure display output)
 
