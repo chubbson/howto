@@ -14,7 +14,8 @@ See [[p14s]] for system overview.
 - [x] Boot into BIOS → Security → Thunderbolt
   > P14s Gen 5: option names differ from ArchWiki. Found a Thunderbolt enable/disable toggle and a second option (name TBD) recommended to enable to avoid eGPU connection problems — enable it.
   > The exact labels "Thunderbolt Security Level" and "Thunderbolt BIOS Assist Mode" were NOT present — update this note with actual names when revisiting BIOS.
-- [ ] Check current security level from Linux: `cat /sys/bus/thunderbolt/devices/domain0/security`
+- [x] Check current security level from Linux: `cat /sys/bus/thunderbolt/devices/domain0/security`
+  > `user` — devices require explicit authorization via `boltctl`. Razer Core X V2 is enrolled and auto-authorized.
 
 ### Connect & Authorize
 
@@ -110,11 +111,11 @@ Current active cmdline: `loglevel=3 quiet pci=assign-busses,hpbussize=0x33,reall
   # NVreg_EnablePCIeGen3=3
   ```
   > `NVreg_EnableGpuFirmware=0` — disables GSP firmware; 580.x has silent GSP init failure for Pascal (GP102) over Thunderbolt. **This was the key fix.**
-  > `NVreg_EnablePCIeGen3=3` — commented out / pending. Link currently at 2.5 GT/s Gen1 x4 — uncomment to attempt Gen3 negotiation.
+  > `NVreg_EnablePCIeGen3=3` — not needed. The `2.5 GT/s Gen1 x4` reported by `lspci` is a virtual PCIe link advertised by the Thunderbolt controller — it does not reflect actual bandwidth. Real throughput is determined by the TB link itself (TB4 = 40 Gb/s bidirectional, confirmed via `/sys/bus/thunderbolt/devices/0-1/rx_speed`).
   > `softdep nvidia pre: thunderbolt` — ensures thunderbolt module loads before nvidia.
   > See [[modprobe.d-nvidia]] for full option reference.
 
-- [ ] **Pending** — Uncomment `NVreg_EnablePCIeGen3=3` in `/etc/modprobe.d/nvidia.conf`, rebuild initramfs, reboot, verify with `cat /sys/bus/pci/devices/0000:37:00.0/current_link_speed` (target: 8 GT/s Gen3)
+- [x] ~~**Pending** — Enable `NVreg_EnablePCIeGen3=3`~~ — **not needed.** The `2.5 GT/s` PCIe link is a Thunderbolt virtual PCIe topology artifact; actual bandwidth is full TB4 (40 Gb/s). See modprobe.d note above.
 
 - [x] Enable Nvidia suspend/hibernate services:
   ```
@@ -129,10 +130,7 @@ Current active cmdline: `loglevel=3 quiet pci=assign-busses,hpbussize=0x33,reall
 
 ### Wayland Hotplug
 
-- [ ] Create `/etc/environment.d/50_mesa.conf`:
-  ```
-  __EGL_VENDOR_LIBRARY_FILENAMES=/usr/share/glvnd/egl_vendor.d/50_mesa.json
-  ```
+- [x] ~~Create `/etc/environment.d/50_mesa.conf`~~ — **not needed.** Hotplug tested without it: GPU disappears cleanly on unplug, comes back automatically on replug (`nvidia-smi` recovers, no crashes). The nvidia udev rule (`60-nvidia.rules`) handles device node recreation on plug-in.
 
 ### PRIME Offload (iGPU primary, eGPU on demand)
 
@@ -178,6 +176,13 @@ Current active cmdline: `loglevel=3 quiet pci=assign-busses,hpbussize=0x33,reall
   > `/dev/nvidia0`, `/dev/nvidiactl`, `/dev/nvidia-modeset`, `/dev/nvidia-uvm`, `/dev/nvidia-uvm-tools` ✓
 - [x] Check CUDA/compute: `nvidia-smi`
   > GTX 1080 Ti, 580.142, CUDA 13.0, 32°C idle ✓
+- [x] Check PCIe link speed:
+  ```
+  cat /sys/bus/pci/devices/0000:37:00.0/current_link_speed
+  cat /sys/bus/pci/devices/0000:37:00.0/current_link_width
+  ```
+  > Reports `2.5 GT/s` (Gen1) x4 — this is **expected**. Thunderbolt presents a virtual PCIe link at Gen1 speed; actual throughput is the TB link rate.
+  > Check real TB bandwidth: `cat /sys/bus/thunderbolt/devices/0-1/rx_speed` → `20.0 Gb/s` (TB4 = 20 rx + 20 tx = 40 Gb/s total) ✓
 - [ ] Test PRIME offload: `prime-run glxinfo | grep renderer`
 - [ ] Test external monitor (connect to eGPU enclosure display output)
 
@@ -186,6 +191,7 @@ Current active cmdline: `loglevel=3 quiet pci=assign-busses,hpbussize=0x33,reall
 - Hotplug into a running Wayland/GNOME session should work via module reload (see workflow below)
 - Hot-unplug requires unloading nvidia modules first — do not disconnect without doing so
 - Thunderbolt bandwidth limits PCIe lanes — expect some performance overhead vs native PCIe
+- `lspci` reports `2.5 GT/s PCIe` (Gen1) x4 for the eGPU — this is a **virtual PCIe link** created by the TB controller and does not reflect real bandwidth. Actual throughput = TB link speed (TB4: 40 Gb/s bidirectional). Check with `cat /sys/bus/thunderbolt/devices/0-1/rx_speed`
 - For Wayland hotplugging without reboot, unload/reload nvidia modules:
   ```
   sudo rmmod nvidia_uvm nvidia_drm nvidia_modeset nvidia
