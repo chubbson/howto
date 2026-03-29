@@ -69,12 +69,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "linux/docker.md",
+                "file": "README.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "docker"
+              "title": "README"
             }
           },
           {
@@ -221,7 +221,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "linux/docker.md",
+                "file": "README.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -231,7 +231,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for docker"
+              "title": "Backlinks for README"
             }
           }
         ]
@@ -252,6 +252,27 @@
   },
   "active": "44ff825a1a29f2fd",
   "lastOpenFiles": [
+    "rss reader.md",
+    "README.md",
+    "markdown.md",
+    "Karl Voit.md",
+    "CLAUDE.md",
+    "Cheatsheet.md",
+    "linux/setup.md",
+    "linux/snapper.md",
+    "linux/Install.md",
+    "linux/flatpak.md",
+    "linux/eza.md",
+    "linux/egpu.md",
+    "linux/docker.md",
+    "linux/console.md",
+    "linux/aur.md",
+    "linux/arch.md",
+    "linux/emacs/Org Mode.md",
+    "linux/emacs/emacs.md",
+    "events/hmc.md",
+    "devel/rust.md",
+    "devel/git.md",
     "linux/p14s.md",
     "linux/audio.md",
     "luks-backup.sh.tmp.6131.1774408168417",
@@ -264,29 +285,9 @@
     "linux/p14s.md.tmp.6338.1774225554224",
     "linux/egpu.md.tmp.6338.1774225432122",
     "linux/egpu.md.tmp.6338.1774225416994",
-    "linux/egpu.md",
     "linux/keychron.md",
     "linux/problems.md",
-    "linux/eza.md",
-    "linux/setup.md",
-    "Cheatsheet.md",
-    "linux/snapper.md",
-    "linux/arch.md",
     "Newsboat.md",
-    "linux/aur.md",
-    "linux/yay.md",
-    "linux/solo2.md",
-    "linux/Udev.md",
-    "linux/emacs/Org Mode.md",
-    "linux/emacs/emacs.md",
-    "events/hmc.md",
-    "linux/ssh.md",
-    "linux/monitoring.md",
-    "linux/emacs/emacs cheatsheet.md",
-    "rss reader.md",
-    "rss.md",
-    "Karl Voit.md",
-    "markdown.md",
     "Untitled.canvas"
   ]
 }
