@@ -132,30 +132,72 @@ Current active cmdline: `loglevel=3 quiet pci=assign-busses,hpbussize=0x33,reall
 
 - [x] ~~Create `/etc/environment.d/50_mesa.conf`~~ — **not needed.** Hotplug tested without it: GPU disappears cleanly on unplug, comes back automatically on replug (`nvidia-smi` recovers, no crashes). The nvidia udev rule (`60-nvidia.rules`) handles device node recreation on plug-in.
 
-### PRIME Offload (iGPU primary, eGPU on demand)
+### GPU Priority (Wayland/GNOME): Arc as primary, NVIDIA on demand
 
-- [ ] Create `/etc/X11/xorg.conf.d/80-igpu-primary-egpu-offload.conf`:
-  ```
-  Section "Device"
-      Identifier "Device0"
-      Driver     "modesetting"
-  EndSection
+**Problem:** NVIDIA eGPU gets `card0` (DRM primary) because its driver registers before `i915`. GNOME/Mutter defaults to card0, so everything runs on NVIDIA — wasting power at idle.
 
-  Section "Device"
-      Identifier "Device1"
-      Driver     "nvidia"
-      BusID      "PCI:55:0:0"
-      Option     "AllowExternalGpus" "True"
-  EndSection
+**Goal:** Arc handles compositing/desktop; NVIDIA only activates for specific apps (games).
+
+#### Step 1 — Tell GNOME to use Arc's render node
+
+- [ ] Add to `/etc/environment`:
   ```
-  > BusID: `37:00.0` → 0x37 = 55 decimal → `PCI:55:0:0`
+  MUTTER_DEBUG_NUM_DUMMY_MODS=0
+  ```
+  > Actually use: check which env var your Mutter version supports. The render node approach:
+  ```
+  # /etc/environment
+  GNOME_MUTTER_RENDERNODE=/dev/dri/renderD128
+  ```
+  > `renderD128` = Arc (`00:02.0`), `renderD129` = NVIDIA (`37:00.0`). Verify with:
+  ```
+  ls -la /dev/dri/by-path/
+  ```
+- [ ] Reboot and verify in nvtop: Arc (dev 0) should show compositor activity, NVIDIA (dev 1) should idle at ~0%
+
+#### Step 2 — Run a game on eGPU via Steam
+
+- [ ] In Steam → game Properties → **Launch Options**:
+  ```
+  __NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia __VK_LAYER_NV_optimus=NVIDIA_only %command%
+  ```
+  > `__GLX_VENDOR_LIBRARY_NAME=nvidia` — for OpenGL games
+  > `__VK_LAYER_NV_optimus=NVIDIA_only` — for Vulkan games
+  > Both can coexist in the same launch option string
+
+- [ ] Verify game is running on NVIDIA: check nvtop while game is running — NVIDIA GPU utilization should spike
+
+#### Prerequisites
+
+- [ ] `nvidia-drm.modeset=1` must be in kernel params (currently missing from cmdline):
+  ```
+  # /etc/default/grub
+  GRUB_CMDLINE_LINUX_DEFAULT="... nvidia-drm.modeset=1"
+  ```
+  ```
+  sudo grub-mkconfig -o /boot/grub/grub.cfg
+  ```
+  > Required for PRIME render offload to work on Wayland
+
+### PRIME Offload (run any program on eGPU)
 
 - [ ] To run a program on eGPU:
   ```
   prime-run <program>
-  # or
+  # or manually:
   __NV_PRIME_RENDER_OFFLOAD=1 __VK_LAYER_NV_optimus=NVIDIA_only __GLX_VENDOR_LIBRARY_NAME=nvidia <program>
   ```
+
+#### Identifying GPUs
+
+**Wayland** uses DRM device nodes (`/dev/dri/card*`). Map PCI address to node:
+```
+ls -la /dev/dri/by-path/
+```
+> e.g. `pci-0000:37:00.0-card → ../card0` (NVIDIA), `pci-0000:00:02.0-card → ../card1` (Arc)
+
+**Xorg** uses BusID in decimal. Convert PCI address hex → decimal:
+> `37:00.0` → 0x37 = 55 decimal → BusID `PCI:55:0:0`
 
 ### Secure Boot
 

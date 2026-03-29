@@ -7,7 +7,9 @@
       "Bash(curl -s -A \"Mozilla/5.0\" \"https://wiki.archlinux.org/title/Intel_graphics\")",
       "Bash(curl -s \"https://wiki.archlinux.org/title/Thunderbolt\")",
       "WebFetch(domain:egpu.io)",
-      "WebFetch(domain:forums.developer.nvidia.com)"
+      "WebFetch(domain:forums.developer.nvidia.com)",
+      "Bash(journalctl -b --no-pager)",
+      "WebSearch"
     ]
   }
 }
