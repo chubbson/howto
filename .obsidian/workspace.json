@@ -69,12 +69,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "README.md",
+                "file": "linux/egpu.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "README"
+              "title": "egpu"
             }
           },
           {
@@ -221,7 +221,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "README.md",
+                "file": "linux/egpu.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -231,7 +231,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for README"
+              "title": "Backlinks for egpu"
             }
           }
         ]
@@ -252,8 +252,14 @@
   },
   "active": "44ff825a1a29f2fd",
   "lastOpenFiles": [
-    "rss reader.md",
+    "linux/docker.md",
+    "linux/backup.md",
+    "linux/audio.md",
+    "linux/arch.md",
+    "devel/rust.md",
+    "devel/git.md",
     "README.md",
+    "rss reader.md",
     "markdown.md",
     "Karl Voit.md",
     "CLAUDE.md",
@@ -264,17 +270,12 @@
     "linux/flatpak.md",
     "linux/eza.md",
     "linux/egpu.md",
-    "linux/docker.md",
     "linux/console.md",
     "linux/aur.md",
-    "linux/arch.md",
     "linux/emacs/Org Mode.md",
     "linux/emacs/emacs.md",
     "events/hmc.md",
-    "devel/rust.md",
-    "devel/git.md",
     "linux/p14s.md",
-    "linux/audio.md",
     "luks-backup.sh.tmp.6131.1774408168417",
     "linux/egpu.md.tmp.6222.1774406117862",
     "linux/egpu.md.tmp.6222.1774406109412",
@@ -287,7 +288,6 @@
     "linux/egpu.md.tmp.6338.1774225416994",
     "linux/keychron.md",
     "linux/problems.md",
-    "Newsboat.md",
     "Untitled.canvas"
   ]
 }
