@@ -9,7 +9,10 @@
       "WebFetch(domain:egpu.io)",
       "WebFetch(domain:forums.developer.nvidia.com)",
       "Bash(journalctl -b --no-pager)",
-      "WebSearch"
+      "WebSearch",
+      "Bash(journalctl:*)",
+      "WebFetch(domain:dwarffortresswiki.org)",
+      "WebFetch(domain:cdn.kernel.org)"
     ]
   }
 }

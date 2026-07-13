@@ -4,6 +4,29 @@ Tags: #troubleshooting
 
 A running log of issues encountered and their fix status.
 
+## 2026-04-01 — Hibernate Resume: Kernel Panic (Caps Lock Blink, No eGPU)
+
+**Status:** Fixed 2026-04-01 — `nvidia-unload-if-no-gpu.service` unloads nvidia modules before hibernate when no GPU is present.
+
+**Symptom:** Same caps lock blink panic as the 2026-03-22 issue, but with no eGPU connected at all (not on hibernation, not on resume). `HibernateMode=shutdown` was still in place.
+
+**Root cause:** The nvidia kernel module loads at boot even without the eGPU (`NVRM: No NVIDIA GPU found`). Its state is captured in the hibernate image. On restore, the kernel calls the nvidia driver's PM `restore()` callback before systemd starts — this tries to reinitialize GPU hardware that doesn't exist → panic. `nvidia-sleep.sh` guards the systemd-level hooks correctly (checks `/proc/driver/nvidia/suspend`) but cannot protect the kernel-level restore path.
+
+**Fix:** A pre-hibernate systemd service unloads nvidia modules when no GPU is present, so they are absent from the hibernate image entirely.
+
+```
+/usr/local/bin/nvidia-unload-if-no-gpu.sh
+/etc/systemd/system/nvidia-unload-if-no-gpu.service
+  → WantedBy=hibernate.target suspend-then-hibernate.target
+  → Before=nvidia-hibernate.service
+```
+
+See [[egpu]] → "Hibernate / Resume" section for full details and file contents.
+
+**After resume:** If eGPU is connected post-resume, load modules manually: `sudo modprobe nvidia-drm`.
+
+---
+
 ## 2026-03-22 — Hibernate Resume: Kernel Panic (Caps Lock Blink)
 
 **Status:** Fixed 2026-03-22 — `HibernateMode=shutdown` in `/etc/systemd/sleep.conf`. PSR=2 (default) restored.
@@ -44,6 +67,8 @@ HibernateMode=shutdown
 ```
 
 Remove any `i915.enable_psr=N` from GRUB cmdline — PSR is unrelated and default (PSR=2) is fine.
+
+> **Note (2026-04-01):** This fixed the *save* path only. The *restore* path panicked again on 2026-04-01 due to the nvidia kernel module being captured in the hibernate image without an eGPU present. See [2026-04-01 entry](#2026-04-01--hibernate-resume-kernel-panic-caps-lock-blink-no-egpu) above.
 
 ---
 

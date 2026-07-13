@@ -132,6 +132,71 @@ Current active cmdline: `loglevel=3 quiet pci=assign-busses,hpbussize=0x33,reall
 
 - [x] ~~Create `/etc/environment.d/50_mesa.conf`~~ — **not needed.** Hotplug tested without it: GPU disappears cleanly on unplug, comes back automatically on replug (`nvidia-smi` recovers, no crashes). The nvidia udev rule (`60-nvidia.rules`) handles device node recreation on plug-in.
 
+### Hibernate / Resume (no eGPU connected)
+
+**Problem:** The nvidia kernel module loads at boot even without the eGPU (`NVRM: No NVIDIA GPU found`). When the system hibernates, the module's state is captured in the hibernate image. On restore, the kernel calls the nvidia driver's PM `restore()` callback, which tries to reinitialize GPU hardware that doesn't exist → kernel panic (caps lock blink).
+
+`nvidia-sleep.sh` handles the no-GPU case gracefully (exits early when `/proc/driver/nvidia/suspend` is absent), but that only covers the systemd-level hooks — the kernel-level restore callback runs before systemd and is not guarded.
+
+**Fix:** Unload nvidia modules before the hibernate image is written when no GPU is present, so no nvidia state is captured in the image.
+
+- [x] Create `/usr/local/bin/nvidia-unload-if-no-gpu.sh`:
+  ```bash
+  #!/bin/bash
+  # /proc/driver/nvidia/suspend exists only when a real GPU is managed.
+  # If absent, no eGPU is connected — unload modules so they are not
+  # captured in the hibernate image and do not panic on restore.
+  if [ ! -f /proc/driver/nvidia/suspend ]; then
+      for mod in nvidia_uvm nvidia_drm nvidia_modeset nvidia; do
+          if lsmod | grep -q "^${mod} "; then
+              rmmod "$mod"
+          fi
+      done
+  fi
+  ```
+  ```bash
+  sudo chmod +x /usr/local/bin/nvidia-unload-if-no-gpu.sh
+  ```
+
+- [x] Create `/etc/systemd/system/nvidia-unload-if-no-gpu.service`:
+  ```ini
+  [Unit]
+  Description=Unload NVIDIA modules before hibernate if no GPU present
+  Before=nvidia-hibernate.service
+  DefaultDependencies=no
+
+  [Service]
+  Type=oneshot
+  ExecStart=/usr/local/bin/nvidia-unload-if-no-gpu.sh
+
+  [Install]
+  WantedBy=hibernate.target suspend-then-hibernate.target
+  ```
+
+- [x] Enable and reload:
+  ```bash
+  sudo systemctl daemon-reload
+  sudo systemctl enable nvidia-unload-if-no-gpu.service
+  ```
+
+**Hibernate sequence with fix:**
+```
+hibernate.target
+  → nvidia-unload-if-no-gpu.service  ← unloads nvidia if no GPU
+  → nvidia-hibernate.service          ← skips (no /proc/driver/nvidia/suspend)
+  → systemd-hibernate.service         ← writes image; nvidia absent from snapshot
+```
+
+**After resume — using eGPU:**
+
+If the eGPU is connected after a resume, nvidia modules are not loaded (they were unloaded before hibernating). Load them manually, same as the hotplug workflow:
+```bash
+sudo modprobe nvidia-drm
+```
+Fresh boots with the eGPU connected are unaffected — modules load normally at boot.
+
+---
+
 ### GPU Priority (Wayland/GNOME): Arc as primary, NVIDIA on demand
 
 **Problem:** NVIDIA eGPU gets `card0` (DRM primary) because its driver registers before `i915`. GNOME/Mutter defaults to card0, so everything runs on NVIDIA — wasting power at idle.

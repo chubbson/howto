@@ -182,6 +182,14 @@ Note: Reqnroll has no VS Code extension — use Cucumber extension instead. Full
 sudo pacman -S dotnet-sdk aspnet-runtime aspnet-targeting-pack
 ```
 
+For building/running older projects targeting .NET 8:
+
+```bash
+sudo pacman -S dotnet-sdk-8.0 aspnet-runtime-8.0
+```
+
+Multiple SDK versions coexist — the correct one is selected automatically based on the project's target framework.
+
 ## Git UI: lazygit
 
 ```bash
@@ -202,7 +210,7 @@ lazygit
 ## TODO
 
 - [x] Run `p10k configure` after logout/login (needs zsh as default shell active)
-- [ ] Install and configure Neovim (relative line numbers, plugins)
+- [x] Install and configure Neovim — see [[neovim]]
 - [ ] Fix VS Code SQL Profiler (needs active connection context before launching)
 
 ## Related
@@ -210,3 +218,4 @@ lazygit
 - [[p14s]] - system overview
 - [[docker]] - SQL Server
 - [[kvm]] - Windows VM
+- [[neovim]] - Neovim + LazyVim
