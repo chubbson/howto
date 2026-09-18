@@ -46,6 +46,15 @@ can you find ouy the wordpress version using only your webbrowser.
 
 crtl+u to show the source code. on browser. 
 
+-------
+`wpscan --help | less`
+
+change to BalcCon WiFi
+
+- wpscan --update
+
+Back to PinkManner Wifi
+
 
 
 
