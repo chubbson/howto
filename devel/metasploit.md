@@ -34,7 +34,15 @@ also work for ip range.
 
 ---------
 
-nmap -T4 -sV --version-all --osscan-guess -A 192.168.1.42
+`nmap -T4 -sV --version-all --osscan-guess -A 192.168.1.42`
 
-nmap -sV --osscan-guess -p 1-10000 192.168.1.42
+`nmap -sV --osscan-guess -p 1-10000 192.168.1.42`
+
+* http://192.168.1.42:8585/wordpress
+open in browser to find out withch plugins this wordpress instance is using. 
+can you find ouy the wordpress version using only your webbrowser.
+
+-----
+
+
 
