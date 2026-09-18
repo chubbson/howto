@@ -55,6 +55,14 @@ change to BalcCon WiFi
 
 Back to PinkManner Wifi
 
+-----
+
+`wpscan --help | less`
+
+`wpsacn --url http://192.168.1.42:8585/wordpress/ | less`
+
+`wpscan --url http"//192.168.1.42:8585/wordpress/ | -e u1-5`
+
 
 
 
