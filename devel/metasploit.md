@@ -44,5 +44,9 @@ can you find ouy the wordpress version using only your webbrowser.
 
 -----
 
+crtl+u to show the source code. on browser. 
+
+
+
 
 
