@@ -70,7 +70,9 @@ look into `/usr/share/wordlists`
 
 -----
 
+password should be `cherry`
 
+////
 
 
 
