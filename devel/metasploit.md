@@ -21,7 +21,20 @@ msf > `show expoits`
 
 ------------------------
 
-WIFI: `PinkManner`
-`PinkMannerLegacy`
+WIFI: `PinkManner`    5Ghz
+`PinkMannerLegacy`  2.4Ghz
 
+Target: `192.168.1.42`
+
+----
+
+`nmap -sS -Pn 192.168.1.42`
+
+also work for ip range. 
+
+---------
+
+nmap -T4 -sV --version-all --osscan-guess -A 192.168.1.42
+
+nmap -sV --osscan-guess -p 1-10000 192.168.1.42
 
